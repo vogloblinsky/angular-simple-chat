@@ -1,0 +1,7 @@
+.gitignore
+travis.yml
+src
+gulp
+node_modules
+bower_components
+.tmp
