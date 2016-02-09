@@ -5,6 +5,7 @@ before_install:
     - npm install npm@1.4 -g
 install:
     - npm install -g gulp
+    - npm install -g bower
     - npm install
     - bower install
 script: 
