@@ -1,6 +1,6 @@
 # angular-bootstrap-chat
 
-[![devdependencies][devdepstat-image]][devdepstat-url] [![Build Status](travis-image)](travis-url)
+[![devdependencies][devdepstat-image]][devdepstat-url] [![Build Status][travis-image]][travis-url]
 
 [devdepstat-url]: https://david-dm.org/vogloblinsky/angular-bootstrap-chat#info=devDependencies
 [devdepstat-image]: https://david-dm.org/vogloblinsky/angular-bootstrap-chat/dev-status.png
