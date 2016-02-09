@@ -6,7 +6,7 @@ exports.paths = {
     tmp: '.tmp'
 };
 
-exports.mainName = 'angular-bootstrap-chat';
+exports.mainName = 'angular-simple-chat';
 
 exports.wiredep = {
     directory: 'bower_components'

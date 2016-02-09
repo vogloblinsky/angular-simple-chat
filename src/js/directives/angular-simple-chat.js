@@ -2,13 +2,13 @@
     'use strict';
 
     angular
-        .module('angular-bootstrap-chat')
-        .directive('angularBootstrapChat', angularBootstrapChat);
+        .module('angular-simple-chat')
+        .directive('angularSimpleChat', angularSimpleChat);
 
-    angularBootstrapChat.$inject = [];
+    angularSimpleChat.$inject = [];
 
     /* @ngInject */
-    function angularBootstrapChat() {
+    function angularSimpleChat() {
         // Usage:
         //
         // Creates:

@@ -2,10 +2,10 @@
     'use strict';
 
     angular
-        .module('angular-bootstrap-chat', [
-            'angular-bootstrap-chat.directives'
+        .module('angular-simple-chat', [
+            'angular-simple-chat.directives'
         ]);
 
     angular
-        .module('angular-bootstrap-chat.directives', []);
+        .module('angular-simple-chat.directives', []);
 })();

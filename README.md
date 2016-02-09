@@ -1,10 +1,10 @@
-# angular-bootstrap-chat
+# angular-simple-chat
 
 [![devdependencies][devdepstat-image]][devdepstat-url] [![Build Status][travis-image]][travis-url]
 
-[devdepstat-url]: https://david-dm.org/vogloblinsky/angular-bootstrap-chat#info=devDependencies
-[devdepstat-image]: https://david-dm.org/vogloblinsky/angular-bootstrap-chat/dev-status.png
-[travis-url]: https://travis-ci.org/vogloblinsky/angular-bootstrap-chat
-[travis-image]: https://travis-ci.org/vogloblinsky/angular-bootstrap-chat.svg?branch=master
+[devdepstat-url]: https://david-dm.org/vogloblinsky/angular-simple-chat#info=devDependencies
+[devdepstat-image]: https://david-dm.org/vogloblinsky/angular-simple-chat/dev-status.png
+[travis-url]: https://travis-ci.org/vogloblinsky/angular-simple-chat
+[travis-image]: https://travis-ci.org/vogloblinsky/angular-simple-chat.svg?branch=master
 
-AngularJS chat directive with Bootstrap
+AngularJS chat directive

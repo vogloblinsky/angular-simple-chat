@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 gulp.task('templates', function() {
     return gulp.src('./src/templates/**/*.html')
         .pipe($.angularTemplatecache({
-            module: 'angular-bootstrap-chat'
+            module: 'angular-simple-chat'
         }))
         .pipe(gulp.dest(conf.paths.tmp + '/scripts'));
 });

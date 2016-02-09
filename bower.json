@@ -1,16 +1,16 @@
 {
-  "name": "angular-bootstrap-chat",
+  "name": "angular-simple-chat",
   "version": "1.0.0",
-  "description": "AngularJS chat directive with Bootstrap",
+  "description": "AngularJS chat directive",
   "main": [
-    "dist/angular-bootstrap-chat.min.js",
-    "dist/angular-bootstrap-chat.min.css"
+    "dist/angular-simple-chat.min.js",
+    "dist/angular-simple-chat.min.css"
   ],
   "authors": [
     "vogloblinsky <vincent.ogloblinsky@gmail.com>"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/vogloblinsky/angular-bootstrap-chat",
+  "homepage": "https://github.com/vogloblinsky/angular-simple-chat",
   "moduleType": [],
   "ignore": [
     "**/.*",

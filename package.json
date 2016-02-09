@@ -1,33 +1,30 @@
 {
-  "name": "angular-bootstrap-chat",
+  "name": "angular-simple-chat",
   "version": "1.0.0",
-  "description": "AngularJS chat directive with Bootstrap",
-  "main": "dist/angular-bootstrap-chat.js",
+  "description": "AngularJS chat directive",
+  "main": "dist/angular-simple-chat.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://vogloblinsky@github.com/vogloblinsky/angular-bootstrap-chat.git"
+    "url": "git+https://vogloblinsky@github.com/vogloblinsky/angular-simple-chat.git"
   },
   "author": "vogloblinsky <vincent.ogloblinsky@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/vogloblinsky/angular-bootstrap-chat/issues"
+    "url": "https://github.com/vogloblinsky/angular-simple-chat/issues"
   },
-  "homepage": "https://github.com/vogloblinsky/angular-bootstrap-chat#readme",
+  "homepage": "https://github.com/vogloblinsky/angular-simple-chat#readme",
   "devDependencies": {
     "browser-sync": "^2.11.1",
-    "browser-sync-spa": "^1.0.3",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
-    "gulp-angular-filesort": "^1.1.1",
     "gulp-angular-templatecache": "^1.8.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.6.0",
     "gulp-cssnano": "^2.1.0",
     "gulp-debug": "^2.1.2",
-    "gulp-inject": "^3.0.0",
     "gulp-load-plugins": "^1.2.0",
     "gulp-ng-annotate": "^1.1.0",
     "gulp-rename": "^1.2.2",
@@ -37,11 +34,8 @@
     "gulp-strip-debug": "^1.1.0",
     "gulp-uglify": "^1.5.2",
     "gulp-util": "^3.0.7",
-    "http-proxy-middleware": "^0.10.0",
-    "lodash": "^4.3.0",
     "run-sequence": "^1.1.5",
     "uglify-save-license": "^0.4.1",
-    "wiredep": "^3.0.0",
     "wrench": "^1.5.8"
   }
 }
