@@ -9,7 +9,12 @@
     <link rel="stylesheet" href="../.tmp/styles/index.css">
 </head>
 
-<body>
+<body ng-controller="AppController as AppView">
+    <ul>
+        <li ng-repeat="message in AppView.messages track by message.id">
+            {{message.text}}
+        </li>
+    </ul>
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../.tmp/scripts/angular-bootstrap-chat.js"></script>
     <script src="app.js"></script>
