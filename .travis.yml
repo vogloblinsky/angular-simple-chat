@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+    - "0.12"
+before_install:
+    - npm install npm@1.4 -g
+install:
+    - npm install -g gulp
+    - npm install
+    - bower install
+script: 
+    - npm run test
