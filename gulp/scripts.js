@@ -10,7 +10,7 @@ var path = require('path'),
 gulp.task('scripts-dev', function() {
     return gulp.src([
             conf.paths.src + '/js/index.js',
-            conf.paths.src + '/js/directives/*.js'
+            conf.paths.src + '/js/directives/**/*.js'
         ])
         .pipe($.concat(conf.mainName + '.js'))
         .pipe(gulp.dest(conf.paths.tmp + '/scripts'))
@@ -19,7 +19,7 @@ gulp.task('scripts-dev', function() {
 gulp.task('scripts-release', function() {
     return gulp.src([
             conf.paths.src + '/js/index.js',
-            conf.paths.src + '/js/directives/*.js',
+            conf.paths.src + '/js/directives/**/*.js',
             conf.paths.tmp + '/scripts/templates.js'
         ])
         .pipe($.concat(conf.mainName + '.js'))

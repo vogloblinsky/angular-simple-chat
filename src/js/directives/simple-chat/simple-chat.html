@@ -1,0 +1,8 @@
+<div ng-repeat="message in sc.messages track by message.id" class="message-wrapper">
+    <chat-bubble
+        message="message"
+        local-user="sc.localUser"
+        to-user="sc.toUser"
+        class="chat-bubble-main-container"
+    ></chat-bubble>
+</div>
