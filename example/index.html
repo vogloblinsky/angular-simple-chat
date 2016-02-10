@@ -7,16 +7,25 @@
         AngularJS + Bootstrap Chat Directive Example
     </title>
     <link rel="stylesheet" href="../.tmp/styles/index.css">
+    <link rel="stylesheet" type="text/css" href="app.css">
 </head>
 
 <body ng-controller="AppController as AppView">
-    <ul>
-        <li ng-repeat="message in AppView.messages track by message.id">
-            {{message.text}}
-        </li>
-    </ul>
+
+    <div class="chat-container">
+        <simple-chat
+            messages="AppView.messages"
+            local-user="AppView.you"
+            to-user="AppView.guy"
+        ></simple-chat>
+    </div>
+
     <script src="../bower_components/angular/angular.js"></script>
-    <script src="../.tmp/scripts/angular-bootstrap-chat.js"></script>
+    <script src="../bower_components/moment/moment.js"></script>
+    <script src="../bower_components/moment/locale/fr.js"></script>
+    <script src="../bower_components/angular-moment/angular-moment.js"></script>
+    <script src="../.tmp/scripts/angular-simple-chat.js"></script>
+    <script src="../.tmp/scripts/templates.js"></script>
     <script src="app.js"></script>
 </body>
 

@@ -3,7 +3,8 @@
 
     angular
         .module('angular-simple-chat', [
-            'angular-simple-chat.directives'
+            'angular-simple-chat.directives',
+            'angularMoment'
         ]);
 
     angular
