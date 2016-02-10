@@ -18,8 +18,8 @@
                 messages: '=',
                 localUser: '=',
                 toUser: '=',
-                sendFunction: '&',
-                sendButtonText: '=',
+                sendFunction: '=',
+                sendButtonText: '@',
                 composerPlaceholderText: '@'
             }
         };
