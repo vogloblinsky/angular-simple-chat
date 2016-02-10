@@ -15,20 +15,30 @@
             restrict: 'AE',
             templateUrl: 'directives/message-composer/message-composer.html',
             scope: {
-                sendFunction: '&',
+                localUser: '=',
+                sendFunction: '=',
                 sendButtonText: '=',
                 composerPlaceholderText: '='
             }
         };
         return directive;
 
-        function link(scope, element, attrs) {
+        function link(scope, element, attrs, ctrl) {
 
         }
     }
 
     /* @ngInject */
-    function messageComposerController() {
-
+    function messageComposerController($scope) {
+        this._send = function() {
+            var _message = {
+                id: 'sc' + Date.now(),
+                text: this.rawmessage,
+                userId: this.localUser.userId,
+                date: Date.now()
+            };
+            this.sendFunction(_message);
+            $scope.$emit('simple-chat-message-posted');
+        };
     }
 })();

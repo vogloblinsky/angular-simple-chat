@@ -5,10 +5,13 @@ message-composer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    display: flex;
 
     :focus {
         outline: none;
+    }
+
+    form {
+        display: flex;
     }
 
     textarea {

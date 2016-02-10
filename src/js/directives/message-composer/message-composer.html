@@ -1,2 +1,8 @@
-<textarea placeholder="{{mc.composerPlaceholderText || 'Write your message here.'}}"></textarea>
-<button ng-click="mc.sendFunction()">{{mc.sendButtonText || 'Send'}}</button>
+<form name="composeForm">
+    <textarea placeholder="{{mc.composerPlaceholderText || 'Write your message here.'}}"
+            ng-model="mc.rawmessage"
+            name="message"
+            ng-required="true"></textarea>
+    <button ng-click="mc._send()"
+        ng-disabled="composeForm.$invalid">{{mc.sendButtonText || 'Send'}}</button>
+</form>

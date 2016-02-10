@@ -61,7 +61,7 @@ angular.module('app', ['angular-simple-chat']);
 ### Params
 * messages: array of messages to show. (required)
 Message format is :
-{id: 'string', text: 'string', userId: 'string', date: '2016-01-27T20:02:39.082Z'}
+{id: 'string', text: 'string', userId: 'string', date: '1455120273886'}
 * local-user: user object of the user using the app (required)
 {userId: 'string', avatar: 'string', username: 'string'}
 * to-user: user object of the other user using the chat (required)
