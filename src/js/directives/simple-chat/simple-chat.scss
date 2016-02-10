@@ -5,3 +5,8 @@
 .message-wrapper:last-child {
     margin-bottom: 10px;
 }
+
+.simple-chat-container {
+    overflow-y: scroll;
+    height: 100%;
+}
