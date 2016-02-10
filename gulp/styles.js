@@ -6,7 +6,21 @@ var gulp = require('gulp'),
     $ = require('gulp-load-plugins')();
 
 gulp.task('styles-dev', function() {
+    var injectFiles = gulp.src(conf.paths.src + '/js/**/*.scss', {
+            read: false
+        }),
+
+        injectOptions = {
+            transform: function(filePath) {
+                filePath = filePath.replace(conf.paths.src + '/app/', '');
+                return '@import "' + filePath + '";';
+            },
+            starttag: '// injector',
+            endtag: '// endinjector',
+            addRootSlash: false
+        };
     return gulp.src('./src/sass/**/*.scss')
+        .pipe($.inject(injectFiles, injectOptions))
         .pipe($.sass({
             outputStyle: 'expanded'
         }).on('error', conf.errorHandler('Sass')))
@@ -19,6 +33,7 @@ gulp.task('styles-dev', function() {
 
 gulp.task('styles-release', function() {
     return gulp.src('./src/sass/**/*.scss')
+        .pipe($.inject(injectFiles, injectOptions))
         .pipe($.sass({
             outputStyle: 'expanded'
         }).on('error', conf.errorHandler('Sass')))
