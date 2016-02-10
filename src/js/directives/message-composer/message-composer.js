@@ -3,24 +3,21 @@
 
     angular
         .module('angular-simple-chat.directives')
-        .directive('simpleChat', simpleChat);
+        .directive('messageComposer', messageComposer);
 
     /* @ngInject */
-    function simpleChat() {
+    function messageComposer() {
         var directive = {
             bindToController: true,
-            controller: simpleChatController,
-            controllerAs: 'sc',
+            controller: messageComposerController,
+            controllerAs: 'mc',
             link: link,
             restrict: 'AE',
-            templateUrl: 'directives/simple-chat/simple-chat.html',
+            templateUrl: 'directives/message-composer/message-composer.html',
             scope: {
-                messages: '=',
-                localUser: '=',
-                toUser: '=',
                 sendFunction: '&',
                 sendButtonText: '=',
-                composerPlaceholderText: '@'
+                composerPlaceholderText: '='
             }
         };
         return directive;
@@ -31,7 +28,7 @@
     }
 
     /* @ngInject */
-    function simpleChatController() {
+    function messageComposerController() {
 
     }
 })();

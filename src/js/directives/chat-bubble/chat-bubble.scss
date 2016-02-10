@@ -1,11 +1,7 @@
-.message {
-    font-size: 14px;
-}
-
 .message-detail {
     white-space: nowrap;
-    font-size: 14px;
     padding: 4px 0;
+    font-size: $simple-chat-font-size-small;
 }
 
 .chat-bubble-main-container {
@@ -53,37 +49,24 @@
 }
 
 .chat-bubble.left {
-    background-color: #e6e5eb;
+    background-color: $simple-chat-to-user-message-background-color;
 }
 
 .chat-bubble.left:before {
-    background-color: #e6e5eb;
+    background-color: $simple-chat-to-user-message-background-color;
     left: 4px;
     -webkit-transform: rotate(70deg) skew(5deg);
 }
 
 .chat-bubble.right {
-    background-color: #158ffe;
+    background-color: $simple-chat-local-user-message-background-color;
     color: #fff;
 }
 
 .chat-bubble.right:before {
-    background-color: #158ffe;
+    background-color: $simple-chat-local-user-message-background-color;
     right: 4px;
     -webkit-transform: rotate(118deg) skew(-5deg);
-}
-
-.chat-bubble.right a.autolinker {
-    color: #fff;
-    font-weight: bold;
-}
-
-.chat-bubble-time {
-    position: relative;
-    display: block;
-}
-.chat-bubble-time.right {
-    float: right;
 }
 
 /**

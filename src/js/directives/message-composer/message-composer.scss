@@ -1,0 +1,27 @@
+message-composer {
+    height: $simple-chat-composer-height;
+    border-top: 1px solid $simple-chat-main-border-color;
+    background-color: $simple-chat-composer-background-color;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+
+    :focus {
+        outline: none;
+    }
+
+    textarea {
+        margin: 5px;
+        border: 0;
+        flex-grow: 2;
+        background-color: $simple-chat-composer-background-color;
+        font-size: $simple-chat-font-size-standard;
+        resize: none;
+        word-wrap: break-word;
+    }
+
+    button {
+        margin: 5px;
+    }
+}
