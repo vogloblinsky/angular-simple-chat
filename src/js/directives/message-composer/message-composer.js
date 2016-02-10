@@ -39,6 +39,7 @@
             };
             this.sendFunction(_message);
             $scope.$emit('simple-chat-message-posted');
+            this.rawmessage = '';
         };
     }
 })();
