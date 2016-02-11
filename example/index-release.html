@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        AngularJS + Bootstrap Chat Directive Example
+    </title>
+    <link rel="stylesheet" href="../dist/angular-simple-chat.css">
+    <link rel="stylesheet" type="text/css" href="app.css">
+</head>
+
+<body ng-controller="AppController as AppView">
+
+    <div class="chat-container">
+        <simple-chat
+            messages="AppView.messages"
+            local-user="AppView.you"
+            to-user="AppView.guy"
+            send-function="AppView.sendMessage"
+            send-button-text="Send"
+            show-user-avatar="true"
+            composer-placeholder-text="Write your message here"
+        ></simple-chat>
+    </div>
+
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/moment/moment.js"></script>
+    <script src="../bower_components/moment/locale/fr.js"></script>
+    <script src="../bower_components/angular-moment/angular-moment.js"></script>
+    <script src="../dist/angular-simple-chat.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
