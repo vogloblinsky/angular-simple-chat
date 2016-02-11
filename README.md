@@ -15,10 +15,11 @@ AngularJS chat directive
 
 ```json
 "dependencies": {
-  "angularjs": "~1.4.9",
-  "angular-moment": "^0.10.3"
+  "angularjs": "~1.4.9"
 }
 ```
+
+angular-moment amTimeAgo copied internaly because of unit testing issue with angular-moment AMD configuration
 
 # Installation
 
