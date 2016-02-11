@@ -55,6 +55,16 @@ angular.module('app', ['angular-simple-chat']);
 ></simple-chat>
 ```
 
+# Running the example
+
+To run the example page, just run
+
+```shell
+gulp serve
+```
+
+and open your browser on http://localhost:3000/example/
+
 # Documentation
 
 ## Params
