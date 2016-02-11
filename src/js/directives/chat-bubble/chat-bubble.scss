@@ -18,16 +18,24 @@
     position: relative;
     margin: 10px;
     max-width: 80%;
-}
 
-.chat-bubble-container.left {
-    float: left;
-    margin-left: 55px;
-}
+    &.left {
+        float: left;
+        margin-left: 55px;
+    }
 
-.chat-bubble-container.right {
-    float: right;
-    margin-right: 55px;
+    &.right {
+        float: right;
+        margin-right: 55px;
+    }
+
+    &.reset-margin-right {
+        margin-right: 10px;
+    }
+
+    &.reset-margin-left {
+        margin-left: 10px;
+    }
 }
 
 .chat-bubble-container.right .message-detail {

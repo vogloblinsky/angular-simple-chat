@@ -28,7 +28,7 @@
     }
 
     /* @ngInject */
-    function chatBubbleController() {
-
+    function chatBubbleController(SimpleChatConfiguration) {
+        this.options = SimpleChatConfiguration.options;
     }
 })();

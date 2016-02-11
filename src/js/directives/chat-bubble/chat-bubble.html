@@ -1,6 +1,9 @@
 <div ng-if="cb.localUser.userId !== cb.message.userId">
-    <img class="profile-avatar left" ng-src="{{cb.toUser.avatar}}"/>
-    <div class="chat-bubble-container left">
+    <img class="profile-avatar left"
+        ng-src="{{cb.toUser.avatar}}"
+        ng-if="cb.options.showUserAvatar"/>
+    <div class="chat-bubble-container left"
+        ng-class="{'reset-margin-left': !cb.options.showUserAvatar}">
         <div class="message-detail">
             <b>{{cb.toUser.username}}, </b>
             <span am-time-ago="cb.message.date"></span>
@@ -11,8 +14,11 @@
     </div>
 </div>
 <div ng-if="cb.localUser.userId === cb.message.userId">
-    <img class="profile-avatar right" ng-src="{{cb.localUser.avatar}}"/>
-    <div class="chat-bubble-container right">
+    <img class="profile-avatar right"
+        ng-src="{{cb.localUser.avatar}}"
+        ng-if="cb.options.showUserAvatar"/>
+    <div class="chat-bubble-container right"
+        ng-class="{'reset-margin-right': !cb.options.showUserAvatar}">
         <div class="message-detail">
             <b>{{cb.localUser.username}}, </b>
             <span am-time-ago="cb.message.date"></span>

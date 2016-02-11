@@ -70,6 +70,7 @@ Message format is :
 
 * send-button-text: (optional)
 * composer-placeholder-text: (optional)
+* show-user-avatar: boolean (optional)
 
 ### Events
 

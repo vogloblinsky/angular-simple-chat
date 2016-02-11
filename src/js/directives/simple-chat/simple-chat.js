@@ -19,6 +19,7 @@
                 localUser: '=',
                 toUser: '=',
                 sendFunction: '=',
+                showUserAvatar: '=',
                 sendButtonText: '@',
                 composerPlaceholderText: '@'
             }
@@ -26,7 +27,6 @@
         return directive;
 
         function link(scope, element, attrs) {
-            console.log(element);
             var $simpleChatContainer = angular.element(element.children()[0])[0];
             scope.$on('simple-chat-message-posted', function() {
                 $timeout(function() {
