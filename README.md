@@ -11,9 +11,7 @@ AngularJS chat directive
 
 ![AngularJS chat directive](https://raw.githubusercontent.com/vogloblinsky/angular-simple-chat/master/screenshot.png "AngularJS chat directive")
 
-# Usage
-
-## Requirements
+# Requirements
 
 ```json
 "dependencies": {
@@ -22,15 +20,15 @@ AngularJS chat directive
 }
 ```
 
-## Installation
+# Installation
 
-### Install with Bower
+## Install with Bower
 
 ```bash
 bower install --save angular-simple-chat
 ```
 
-### Add the dependencies to your index.html manually or using tool like wiredep
+## Add the dependencies to your index.html manually or using tool like wiredep
 
 ```html
 <!-- Dependencies -->
@@ -43,14 +41,13 @@ bower install --save angular-simple-chat
 <script src="bower_components/angular-simple-chat/dist/angular-simple-chat.min.js"></script>
 ```
 
-### Load the module in your app
+## Load the module in your app
 ```javascript
 angular.module('app', ['angular-simple-chat']);
 ```
 
 ## Use it in any template
 ```html
-/** VIEW **/
 <simple-chat
     messages="AppView.messages"
     local-user="AppView.you"
@@ -58,9 +55,9 @@ angular.module('app', ['angular-simple-chat']);
 ></simple-chat>
 ```
 
-## Documentation
+# Documentation
 
-### Params
+## Params
 * messages: array of messages to show. (required)
 Message format is :
 {id: 'string', text: 'string', userId: 'string', date: '1455120273886'}
@@ -74,9 +71,9 @@ Message format is :
 * composer-placeholder-text: (optional)
 * show-user-avatar: boolean (optional)
 
-### Events
+## Events
 
-#### simple-chat-message-posted
+### simple-chat-message-posted
 Event sended when local user send a message
 
 # TODOS
