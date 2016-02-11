@@ -37,7 +37,9 @@
     }
 
     /* @ngInject */
-    function simpleChatController() {
-
+    function simpleChatController(SimpleChatConfiguration) {
+        if (angular.isDefined(this.showUserAvatar)) {
+            SimpleChatConfiguration.setShowUserAvatar(this.showUserAvatar);
+        }
     }
 })();

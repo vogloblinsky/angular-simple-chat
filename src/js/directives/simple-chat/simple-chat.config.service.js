@@ -13,12 +13,12 @@
             showUserAvatar: true
         };
 
-        this.options = options();
-
-        ////////////////
-
-        function options() {
+        this.options = function() {
             return _options;
-        }
+        };
+
+        this.setShowUserAvatar = function(value) {
+            _options.showUserAvatar = value;
+        };
     }
 })();
