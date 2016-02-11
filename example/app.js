@@ -15,14 +15,14 @@
 
         vm.guy = {
             userId: 'hilsqdhfods5990K226DHS01NOHoh',
-            avatar: 'http://ionicframework.com/img/docs/tully.jpg',
-            username: 'Tully'
+            avatar: 'http://polyligne.be/wp-content/uploads/2014/06/Man_Avatar.gif',
+            username: 'Marc'
         }
 
         vm.you = {
             userId: '4562KDJYE72930DST283DFY202Dd',
-            avatar: 'http://ionicframework.com/img/docs/stantz.jpg',
-            username: 'Ray'
+            avatar: 'http://www.orangecountyjailministryorlando.com/wp-content/uploads/2015/01/Woman_Avatar.gif',
+            username: 'Anna'
         };
 
         vm.messages = MockMessagesService.getMessages();
