@@ -3,22 +3,23 @@
 var gulp = require('gulp'),
     conf = require('./conf'),
 
-    $ = require('gulp-load-plugins')();
+    $ = require('gulp-load-plugins')(),
+
+    injectFiles = gulp.src(conf.paths.src + '/js/**/*.scss', {
+        read: false
+    }),
+
+    injectOptions = {
+        transform: function(filePath) {
+            filePath = filePath.replace(conf.paths.src + '/app/', '');
+            return '@import "' + filePath + '";';
+        },
+        starttag: '// injector',
+        endtag: '// endinjector',
+        addRootSlash: false
+    };
 
 gulp.task('styles-dev', function() {
-    var injectFiles = gulp.src(conf.paths.src + '/js/**/*.scss', {
-            read: false
-        }),
-
-        injectOptions = {
-            transform: function(filePath) {
-                filePath = filePath.replace(conf.paths.src + '/app/', '');
-                return '@import "' + filePath + '";';
-            },
-            starttag: '// injector',
-            endtag: '// endinjector',
-            addRootSlash: false
-        };
     return gulp.src('./src/sass/**/*.scss')
         .pipe($.inject(injectFiles, injectOptions))
         .pipe($.sass({
