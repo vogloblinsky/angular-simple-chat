@@ -10,7 +10,7 @@
     /* @ngInject */
     function SimpleChatConfiguration() {
         var _options = {
-            showUserAvatar: false
+            showUserAvatar: true
         };
 
         this.options = options();
