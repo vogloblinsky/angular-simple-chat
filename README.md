@@ -9,6 +9,8 @@
 
 AngularJS chat directive
 
+![AngularJS chat directive](https://raw.githubusercontent.com/vogloblinsky/angular-simple-chat/master/screenshot.png "AngularJS chat directive")
+
 # Usage
 
 ## Requirements
