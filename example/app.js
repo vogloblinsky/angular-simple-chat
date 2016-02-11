@@ -28,7 +28,6 @@
         vm.messages = MockMessagesService.getMessages();
 
         vm.sendMessage = function(message) {
-            console.log('sendMessage: ', message);
             vm.messages.push(message);
         };
 
