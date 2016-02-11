@@ -11,7 +11,6 @@
             bindToController: true,
             controller: messageComposerController,
             controllerAs: 'mc',
-            link: link,
             restrict: 'AE',
             templateUrl: 'directives/message-composer/message-composer.html',
             scope: {
@@ -22,10 +21,6 @@
             }
         };
         return directive;
-
-        function link(scope, element, attrs, ctrl) {
-
-        }
     }
 
     /* @ngInject */

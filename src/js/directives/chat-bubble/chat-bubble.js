@@ -11,7 +11,6 @@
             bindToController: true,
             controller: chatBubbleController,
             controllerAs: 'cb',
-            link: link,
             restrict: 'AE',
             templateUrl: 'directives/chat-bubble/chat-bubble.html',
             scope: {
@@ -21,10 +20,6 @@
             }
         };
         return directive;
-
-        function link(scope, element, attrs) {
-
-        }
     }
 
     /* @ngInject */
