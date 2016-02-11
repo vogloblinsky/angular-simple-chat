@@ -9,9 +9,9 @@
     width: 100%;
 }
 
-/**
- * Chat bubble
- */
+/////////////////
+// Chat bubble //
+/////////////////
 
 .chat-bubble-container {
     display: inline-block;
@@ -27,6 +27,10 @@
     &.right {
         float: right;
         margin-right: 55px;
+
+        .message-detail {
+            text-align: right;
+        }
     }
 
     &.reset-margin-right {
@@ -38,61 +42,59 @@
     }
 }
 
-.chat-bubble-container.right .message-detail {
-    text-align: right;
-}
-
 .chat-bubble {
     border-radius: 5px;
     padding: 10px 18px;
+
+    &::before {
+        content: '\00a0';
+        display: block;
+        height: 16px;
+        width: 9px;
+        position: absolute;
+        bottom: -4.5px;
+    }
+
+    &.left {
+        background-color: $simple-chat-to-user-message-background-color;
+
+        &::before {
+            background-color: $simple-chat-to-user-message-background-color;
+            left: 4px;
+            transform: rotate(70deg) skew(5deg);
+        }
+    }
+
+    &.right {
+        background-color: $simple-chat-local-user-message-background-color;
+        color: $simple-chat-local-user-message-color;
+
+        &::before {
+            background-color: $simple-chat-local-user-message-background-color;
+            right: 4px;
+            transform: rotate(118deg) skew(-5deg);
+        }
+    }
 }
 
-.chat-bubble:before {
-    content: "\00a0";
-    display: block;
-    height: 16px;
-    width: 9px;
-    position: absolute;
-    bottom: -4.5px;
-}
+////////////////
+// Pic avatar //
+////////////////
 
-.chat-bubble.left {
-    background-color: $simple-chat-to-user-message-background-color;
-}
+img {
+    &.profile-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 10px;
 
-.chat-bubble.left:before {
-    background-color: $simple-chat-to-user-message-background-color;
-    left: 4px;
-    -webkit-transform: rotate(70deg) skew(5deg);
-}
+        &.left {
+            left: 10px;
+        }
 
-.chat-bubble.right {
-    background-color: $simple-chat-local-user-message-background-color;
-    color: #fff;
-}
-
-.chat-bubble.right:before {
-    background-color: $simple-chat-local-user-message-background-color;
-    right: 4px;
-    -webkit-transform: rotate(118deg) skew(-5deg);
-}
-
-/**
- * Pic avatar
- */
-
-img.profile-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 10px;
-}
-
-img.profile-avatar.left {
-    left: 10px;
-}
-
-img.profile-avatar.right {
-    right: 10px;
+        &.right {
+            right: 10px;
+        }
+    }
 }

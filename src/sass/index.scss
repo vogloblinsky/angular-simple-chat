@@ -1,14 +1,18 @@
 $simple-chat-composer-height: 50px;
-$simple-chat-main-border-color: #b2b2b2;
 $simple-chat-composer-background-color: #f8f8f8;
+
+$simple-chat-main-border-color: #b2b2b2;
+
 $simple-chat-font-size-standard: 14px;
 $simple-chat-font-size-small: 12px;
+
 $simple-chat-local-user-message-background-color: #158ffe;
+$simple-chat-local-user-message-color: #fff;
 $simple-chat-to-user-message-background-color: #e6e5eb;
 
 $simple-chat-composer-button-background-color: #158ffe;
-$simple-chat-composer-button-color: white;
-$simple-chat-composer-button-border-color: 1px solid white;
+$simple-chat-composer-button-color: #fff;
+$simple-chat-composer-button-border-color: 1px solid #fff;
 
 // injector
 // endinjector

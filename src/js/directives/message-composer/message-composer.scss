@@ -34,7 +34,6 @@ message-composer {
 
         &[disabled] {
             opacity: .5;
-            cursor: default!important;
             pointer-events: none;
         }
     }
