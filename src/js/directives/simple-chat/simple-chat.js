@@ -6,7 +6,7 @@
         .directive('simpleChat', simpleChat);
 
     /* @ngInject */
-    function simpleChat() {
+    function simpleChat($timeout) {
         var directive = {
             bindToController: true,
             controller: simpleChatController,
@@ -29,9 +29,9 @@
             console.log(element);
             var $simpleChatContainer = angular.element(element.children()[0])[0];
             scope.$on('simple-chat-message-posted', function() {
-                console.log('simpleChat onMessagePosted');
-                console.log($simpleChatContainer.scrollHeight);
-                //angular.element($simpleChatContainer).scrollTop($simpleChatContainer.scrollHeight);
+                $timeout(function() {
+                    $simpleChatContainer.scrollTop = $simpleChatContainer.scrollHeight;
+                }, 0);
             });
         }
     }
