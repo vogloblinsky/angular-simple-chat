@@ -26,5 +26,16 @@ message-composer {
 
     button {
         margin: 5px;
+        border-radius: 5px;
+        background-color: $simple-chat-composer-button-background-color;
+        color: $simple-chat-composer-button-color;
+        border: $simple-chat-composer-button-border-color;
+        cursor: pointer;
+
+        &[disabled] {
+            opacity: .5;
+            cursor: default!important;
+            pointer-events: none;
+        }
     }
 }
