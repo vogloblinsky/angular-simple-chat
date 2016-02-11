@@ -11,7 +11,7 @@
     "url": "git+https://vogloblinsky@github.com/vogloblinsky/angular-simple-chat.git"
   },
   "author": "vogloblinsky <vincent.ogloblinsky@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/vogloblinsky/angular-simple-chat/issues"
   },
@@ -27,7 +27,9 @@
     "gulp-cssnano": "^2.1.0",
     "gulp-debug": "^2.1.2",
     "gulp-eslint": "^1.1.1",
+    "gulp-header": "^1.7.1",
     "gulp-htmlhint": "^0.3.1",
+    "gulp-iife": "^0.2.4",
     "gulp-inject": "^3.0.0",
     "gulp-jshint": "^2.0.0",
     "gulp-load-plugins": "^1.2.0",
@@ -43,7 +45,6 @@
     "jshint": "^2.9.1",
     "jshint-stylish": "^2.1.0",
     "run-sequence": "^1.1.5",
-    "uglify-save-license": "^0.4.1",
     "wrench": "^1.5.8"
   }
 }
