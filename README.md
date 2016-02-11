@@ -74,7 +74,8 @@ Message format is :
 
 ### Events
 
-TODO
+#### simple-chat-message-posted
+Event sended when local user send a message
 
 # TODOS
 
