@@ -6,7 +6,8 @@
   "scripts": {
     "test": "intern-runner config=tests/intern",
     "test-local": "intern-runner config=tests/intern.local",
-    "coveralls": "cat lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "coveralls": "cat lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "codecov": "./node_modules/.bin/codecov"
   },
   "repository": {
     "type": "git",
