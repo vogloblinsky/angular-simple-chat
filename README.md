@@ -6,8 +6,8 @@
 [devdepstat-image]: https://david-dm.org/vogloblinsky/angular-simple-chat/dev-status.png
 [travis-url]: https://travis-ci.org/vogloblinsky/angular-simple-chat
 [travis-image]: https://travis-ci.org/vogloblinsky/angular-simple-chat.svg?branch=master
-[codecov-url]: https://codecov.io/github/codecov/codecov-ruby?branch=master
-[codecov-image]: https://codecov.io/github/codecov/codecov-ruby/coverage.svg?branch=master
+[codecov-url]: https://codecov.io/github/vogloblinsky/angular-simple-chat?branch=master
+[codecov-image]: https://codecov.io/github/vogloblinsky/angular-simple-chat/coverage.svg?branch=master
 
 AngularJS chat directive
 
