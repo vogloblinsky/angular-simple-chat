@@ -17,6 +17,7 @@ function simpleChat($timeout) {
             toUser: '=',
             sendFunction: '=',
             showUserAvatar: '=',
+            showComposer: '=',
             sendButtonText: '@',
             composerPlaceholderText: '@'
         }
@@ -39,7 +40,11 @@ angular
 
 /* @ngInject */
 function simpleChatController(SimpleChatConfiguration) {
+    this.options = SimpleChatConfiguration.options();
     if (angular.isDefined(this.showUserAvatar)) {
         SimpleChatConfiguration.setShowUserAvatar(this.showUserAvatar);
+    }
+    if (angular.isDefined(this.showComposer)) {
+        SimpleChatConfiguration.setShowComposer(this.showComposer);
     }
 }

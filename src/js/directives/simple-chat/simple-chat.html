@@ -1,4 +1,5 @@
-<div class="simple-chat-container">
+<div class="simple-chat-container"
+    ng-class="{'full-height': !sc.options.showComposer}">
     <div ng-repeat="message in sc.messages track by message.id" class="message-wrapper">
         <chat-bubble
             message="message"
@@ -13,4 +14,5 @@
     send-function="sc.sendFunction"
     send-button-text="sc.sendButtonText"
     composer-placeholder-text="sc.composerPlaceholderText"
+    ng-if="sc.options.showComposer"
 ></message-composer>

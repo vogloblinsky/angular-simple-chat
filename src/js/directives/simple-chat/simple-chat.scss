@@ -19,4 +19,8 @@ simple-chat {
 .simple-chat-container {
     overflow-y: scroll;
     height: calc(100% - #{$simple-chat-composer-height});
+
+    &.full-height {
+        height: 100%;
+    }
 }

@@ -7,7 +7,8 @@ SimpleChatConfiguration.$inject = [];
 /* @ngInject */
 function SimpleChatConfiguration() {
     var _options = {
-        showUserAvatar: true
+        showUserAvatar: true,
+        showComposer: true
     };
 
     this.options = function() {
@@ -16,5 +17,9 @@ function SimpleChatConfiguration() {
 
     this.setShowUserAvatar = function(value) {
         _options.showUserAvatar = value;
+    };
+
+    this.setShowComposer = function(value) {
+        _options.showComposer = value;
     };
 }
