@@ -1,6 +1,10 @@
 language: node_js
 node_js:
     - "0.12"
+env:
+    global:
+        - secure: KZ0icCvh1yyJrww/Ws/cxMg0i8sfXjAE7pf8pkD8CL0s94JPPuLJx/sN6I0DLVO8piufO7aXs4JnuZ0YL0ZZtT5FfHp0L/tpKGsETcmC/AZAv9x4ea+cjhxxEjhOmYvjX+IHNmkD4NKK9baO70T1/k1cWlF0IZrQg1frXHbAT7k=
+        - secure: Dj46WbtPa1KUebOEjTNu5ueBX5w0wrEvOh5aNCF/k++XbVjKCAb6I/hzifb/oVzN0VNBXi3LWKxMTzousFCbGI5thA43d22oYTQG9s9z9OWIeHmn45lwdLgbwIiraGK7eOYk95jMW6Izohpa7BRZhX39haaVIa9ChgZpgg7yk/o=
 before_install:
     - npm install npm@1.4 -g
 install:
