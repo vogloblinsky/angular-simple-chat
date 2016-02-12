@@ -51,5 +51,8 @@
     "jshint-stylish": "^2.1.0",
     "run-sequence": "^1.1.5",
     "wrench": "^1.5.8"
+  },
+  "dependencies": {
+    "codecov": "^1.0.1"
   }
 }
