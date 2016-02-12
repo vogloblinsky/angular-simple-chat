@@ -6,7 +6,7 @@ angular
 function simpleChat($timeout) {
     var directive = {
         bindToController: true,
-        controller: simpleChatController,
+        controller: 'simpleChatController',
         controllerAs: 'sc',
         link: link,
         restrict: 'AE',
@@ -32,6 +32,10 @@ function simpleChat($timeout) {
         });
     }
 }
+
+angular
+    .module('angular-simple-chat.directives')
+    .controller('simpleChatController', simpleChatController);
 
 /* @ngInject */
 function simpleChatController(SimpleChatConfiguration) {
