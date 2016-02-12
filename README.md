@@ -1,6 +1,6 @@
 # angular-simple-chat
 
-[![devdependencies][devdepstat-image]][devdepstat-url] [![Build Status][travis-image]][travis-url] [![codecov.io][codecov-image]][codecov-url]
+[![devdependencies][devdepstat-image]][devdepstat-url] [![Build Status][travis-image]][travis-url] [![codecov.io][codecov-image]][codecov-url] [![bower][bower-image]]
 
 [devdepstat-url]: https://david-dm.org/vogloblinsky/angular-simple-chat#info=devDependencies
 [devdepstat-image]: https://david-dm.org/vogloblinsky/angular-simple-chat/dev-status.png
@@ -8,6 +8,7 @@
 [travis-image]: https://travis-ci.org/vogloblinsky/angular-simple-chat.svg?branch=master
 [codecov-url]: https://codecov.io/github/vogloblinsky/angular-simple-chat?branch=master
 [codecov-image]: https://codecov.io/github/vogloblinsky/angular-simple-chat/coverage.svg?branch=master
+[bower-image]: https://img.shields.io/bower/v/angular-simple-chat.svg
 
 AngularJS chat directive
 
