@@ -20,7 +20,7 @@
   "homepage": "https://github.com/vogloblinsky/angular-simple-chat#readme",
   "devDependencies": {
     "browser-sync": "^2.11.1",
-    "coveralls": "^2.11.6",
+    "coveralls": "^2.11.2",
     "del": "^2.2.0",
     "eslint-plugin-angular": "^0.15.0",
     "gulp": "^3.9.1",
