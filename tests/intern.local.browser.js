@@ -7,9 +7,5 @@ define([
         port: 4444
     };
 
-    intern.suites = [
-        'tests/unit/simple-chat.spec'
-    ];
-
     return intern;
 });

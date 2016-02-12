@@ -4,8 +4,9 @@
   "description": "AngularJS chat directive",
   "main": "dist/angular-simple-chat.js",
   "scripts": {
-    "test": "intern-runner config=tests/intern",
-    "test-local": "intern-runner config=tests/intern.local",
+    "test-local-terminal": "intern-runner config=tests/intern.local.terminal",
+    "test-local-browser": "intern-runner config=tests/intern.local.browser",
+    "test-travis": "intern-runner config=tests/intern.travis",
     "coveralls": "cat lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "codecov": "./node_modules/.bin/codecov"
   },

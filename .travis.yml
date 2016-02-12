@@ -15,7 +15,7 @@ install:
     - npm install
     - bower install
 script: 
-    - npm run test
+    - npm run test-travis
 after_success:
     - npm run codecov
 branches:
