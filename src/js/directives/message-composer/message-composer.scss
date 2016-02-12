@@ -16,6 +16,7 @@ message-composer {
 
     textarea {
         margin: 5px;
+        padding: 0;
         border: 0;
         flex-grow: 2;
         background-color: $simple-chat-composer-background-color;
