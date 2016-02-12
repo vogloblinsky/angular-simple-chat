@@ -4,7 +4,8 @@
   "description": "AngularJS chat directive",
   "main": "dist/angular-simple-chat.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "intern-runner config=tests/intern",
+    "test-local": "intern-runner config=tests/intern.local"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
     "gulp-strip-debug": "^1.1.0",
     "gulp-uglify": "^1.5.2",
     "gulp-util": "^3.0.7",
+    "intern": "^3.0.6",
     "jshint": "^2.9.1",
     "jshint-stylish": "^2.1.0",
     "run-sequence": "^1.1.5",
