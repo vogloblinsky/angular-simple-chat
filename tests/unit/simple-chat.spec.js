@@ -5,46 +5,74 @@ define([
     'intern!bdd',
     'intern/dojo/text!SOURCES/directives/simple-chat/simple-chat.html',
     'intern/order!angular/angular',
+    'intern/order!angular-mocks/angular-mocks',
     'intern/order!moment/moment',
     'intern/order!SOURCES/index',
-    'intern/order!SOURCES/directives/simple-chat/simple-chat'
+    'intern/order!SOURCES/directives/simple-chat/simple-chat',
+    'intern/order!SOURCES/directives/simple-chat/simple-chat.config.service'
 ], function(expect, bdd, template) {
 
-    //console.log(template);
+    var scope, compile, element, templateCache, httpBackend, directiveElem, _SimpleChatConfiguration, ctrl,
+
+        getCompiledElement = function() {
+            element = angular.element('<simple-chat></simple-chat>');
+            var compiledDirective = compile(element)(scope);
+            scope.$digest();
+            return compiledDirective;
+        };
 
     function inject(fn) {
         return function() {
-            angular.injector(['ng', 'angular-simple-chat']).invoke(fn);
+            angular.injector(['ng', 'angular-simple-chat', 'ngMock']).invoke(fn);
         }
     }
 
-    bdd.describe('simple-chat directive', function() {
-
-        var scope, compile, templateCache, directiveElem,
-
-            getCompiledElement = function() {
-                var compiledDirective = compile(angular.element('<simple-chat show-user-avatar="true"></simple-chat>'))(scope);
-                scope.$digest();
-                return compiledDirective;
-            };
-
-        bdd.beforeEach(inject(function($rootScope, $compile, $templateCache) {
+    bdd.describe('simple-chat directive - init tests', function() {
+        bdd.before(inject(function($rootScope, $compile, $templateCache, $httpBackend, SimpleChatConfiguration, $controller) {
             scope = $rootScope.$new();
-            scope.showUserAvatar = true;
             compile = $compile;
             templateCache = $templateCache;
+            httpBackend = $httpBackend;
+            _SimpleChatConfiguration = SimpleChatConfiguration;
+
+            templateCache.put('directives/simple-chat/simple-chat.html', template);
+            //httpBackend.whenGET(/directives.*/).respond(200, template);
+
             directiveElem = getCompiledElement();
 
-            $templateCache.put('directives/simple-chat/simple-chat.html', template);
+            ctrl = $controller('simpleChatController', {$scope: scope}, {showUserAvatar: false, sendButtonText: 'envoyer', messages:[{id: 'sdfhoc2838sfd'}]});
         }));
+    });
 
+    bdd.describe('simple-chat directive - scope/controller', function() {
         bdd.it('showUserAvatar on isolated scope should be two-way bound', function() {
-            var isolatedScope = directiveElem.scope();
+            expect(ctrl.showUserAvatar).to.be.false;
+        });
+        bdd.it('sendButtonText on isolated scope should be defined', function() {
+            expect(ctrl.sendButtonText).to.equal('envoyer');
+        });
+        bdd.it('messages on isolated scope should be defined and with one element', function() {
+            expect(ctrl.messages.length).to.equal(1);
+        });
+    });
 
-            isolatedScope.showUserAvatar = false;
+    bdd.describe('simple-chat directive - template', function() {
+        bdd.it('should applied template', function() {
+            expect(directiveElem.html()).to.not.equal('');
+        });
+        bdd.it('template should contain message-composer directive', function() {
+            expect(directiveElem.find('message-composer').length).to.equal(1);
+        });
+    });
 
-            expect(scope.showUserAvatar).to.be.false;
+    bdd.describe('simple-chat directive - controller', function() {
+        bdd.it('controller should exist', function() {
+            expect(element.controller).to.be.a('function');
         });
 
+        bdd.it('controller should configure setShowUserAvatar', function() {
+            var isolatedScope = directiveElem.scope();
+            expect(_SimpleChatConfiguration.options().showUserAvatar).to.be.false;
+        });
     });
 });

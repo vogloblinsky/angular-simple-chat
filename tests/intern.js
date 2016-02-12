@@ -35,11 +35,6 @@ define({
 		accessKey: '5e3b8c85-4a36-40f5-9a80-17dff86bcce9'
 	},
 
-	reporters: [{
-        id: 'Lcov',
-        filename: 'lcov.info'
-    }],
-
 	// Configuration options for the module loader; any AMD configuration options supported by the specified AMD loader
 	// can be used here
 	loaderOptions: {
@@ -59,6 +54,10 @@ define({
 			}
 		]
 	},
+
+	suites: [
+        'tests/unit/simple-chat.spec'
+    ],
 
 	// A regular expression matching URLs to files that should not be included in code coverage analysis
 	excludeInstrumentation: /^(?:tests|node_modules|bower_components)\//
