@@ -24,13 +24,23 @@ function simpleChat($timeout) {
     };
     return directive;
 
-    function link(scope, element, attrs) {
-        var $simpleChatContainer = angular.element(element.children()[0])[0];
-        scope.$on('simple-chat-message-posted', function() {
-            $timeout(function() {
+    function link(scope, element, attrs, ctrl) {
+        var $simpleChatContainer = angular.element(element.children()[0])[0],
+            scrollToBottom = function() {
                 $simpleChatContainer.scrollTop = $simpleChatContainer.scrollHeight;
-            }, 0);
+            };
+
+        scope.$on('simple-chat-message-posted', function() {
+            $timeout(scrollToBottom, 0);
         });
+
+        if (angular.isDefined(ctrl.messages) && ctrl.messages.length > 0) {
+            $timeout(scrollToBottom, 0);
+        }
+
+        if (angular.isUndefined(ctrl.messages)) {
+            ctrl.messages = [];
+        }
     }
 }
 
