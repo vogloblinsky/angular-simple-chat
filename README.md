@@ -1,6 +1,6 @@
 # angular-simple-chat
 
-[![devdependencies][devdepstat-image]][devdepstat-url] [![Build Status][travis-image]][travis-url] [![codecov.io][codecov-image]][codecov-url] ![bower](bower-image)
+[![devdependencies][devdepstat-image]][devdepstat-url] [![Build Status][travis-image]][travis-url] [![codecov.io][codecov-image]][codecov-url] [![bower][bower-image][]
 
 [devdepstat-url]: https://david-dm.org/vogloblinsky/angular-simple-chat#info=devDependencies
 [devdepstat-image]: https://david-dm.org/vogloblinsky/angular-simple-chat/dev-status.png
