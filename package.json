@@ -5,7 +5,8 @@
   "main": "dist/angular-simple-chat.js",
   "scripts": {
     "test": "intern-runner config=tests/intern",
-    "test-local": "intern-runner config=tests/intern.local"
+    "test-local": "intern-runner config=tests/intern.local",
+    "coveralls": "cat lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/vogloblinsky/angular-simple-chat#readme",
   "devDependencies": {
     "browser-sync": "^2.11.1",
+    "coveralls": "^2.11.6",
     "del": "^2.2.0",
     "eslint-plugin-angular": "^0.15.0",
     "gulp": "^3.9.1",

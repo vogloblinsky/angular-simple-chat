@@ -35,6 +35,11 @@ define({
 		accessKey: '5e3b8c85-4a36-40f5-9a80-17dff86bcce9'
 	},
 
+	reporters: [{
+        id: 'Lcov',
+        filename: 'lcov.info'
+    }],
+
 	// Configuration options for the module loader; any AMD configuration options supported by the specified AMD loader
 	// can be used here
 	loaderOptions: {
