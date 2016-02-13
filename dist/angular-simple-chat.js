@@ -1,5 +1,5 @@
 /*
- * angular-simple-chat 1.0.1
+ * angular-simple-chat 1.0.2
  * @description AngularJS chat directive
  * @link https://github.com/vogloblinsky/angular-simple-chat#readme
  * @license MIT
@@ -7,8 +7,8 @@
 ;(function() {
 "use strict";
 
-amTimeAgo.$inject = ["$window", "moment", "amMoment", "amTimeAgoConfig", "angularMomentConfig"];
 chatBubbleController.$inject = ["SimpleChatConfiguration"];
+amTimeAgo.$inject = ["$window", "moment", "amMoment", "amTimeAgoConfig", "angularMomentConfig"];
 messageComposerController.$inject = ["$scope"];
 simpleChat.$inject = ["$timeout"];
 simpleChatController.$inject = ["SimpleChatConfiguration"];angular
@@ -18,6 +18,32 @@ simpleChatController.$inject = ["SimpleChatConfiguration"];angular
 
 angular
     .module('angular-simple-chat.directives', []);
+
+angular
+    .module('angular-simple-chat.directives')
+    .directive('chatBubble', chatBubble);
+
+/* @ngInject */
+function chatBubble() {
+    var directive = {
+        bindToController: true,
+        controller: chatBubbleController,
+        controllerAs: 'cb',
+        restrict: 'AE',
+        templateUrl: 'directives/chat-bubble/chat-bubble.html',
+        scope: {
+            message: '=',
+            localUser: '=',
+            toUser: '='
+        }
+    };
+    return directive;
+}
+
+/* @ngInject */
+function chatBubbleController(SimpleChatConfiguration) {
+    this.options = SimpleChatConfiguration.getOptions();
+}
 
 angular
     .module('angular-simple-chat.directives')
@@ -427,32 +453,6 @@ function amTimeAgo($window, moment, amMoment, amTimeAgoConfig, angularMomentConf
 
 angular
     .module('angular-simple-chat.directives')
-    .directive('chatBubble', chatBubble);
-
-/* @ngInject */
-function chatBubble() {
-    var directive = {
-        bindToController: true,
-        controller: chatBubbleController,
-        controllerAs: 'cb',
-        restrict: 'AE',
-        templateUrl: 'directives/chat-bubble/chat-bubble.html',
-        scope: {
-            message: '=',
-            localUser: '=',
-            toUser: '='
-        }
-    };
-    return directive;
-}
-
-/* @ngInject */
-function chatBubbleController(SimpleChatConfiguration) {
-    this.options = SimpleChatConfiguration.options();
-}
-
-angular
-    .module('angular-simple-chat.directives')
     .directive('messageComposer', messageComposer);
 
 /* @ngInject */
@@ -492,27 +492,29 @@ angular
     .module('angular-simple-chat.directives')
     .service('SimpleChatConfiguration', SimpleChatConfiguration);
 
-SimpleChatConfiguration.$inject = [];
-
 /* @ngInject */
 function SimpleChatConfiguration() {
-    var _options = {
-        showUserAvatar: true,
-        showComposer: true
-    };
-
-    this.options = function() {
+    var _options;
+    this.getOptions = function(value) {
         return _options;
     };
-
-    this.setShowUserAvatar = function(value) {
-        _options.showUserAvatar = value;
-    };
-
-    this.setShowComposer = function(value) {
-        _options.showComposer = value;
+    this.setOptions = function(value) {
+        _options = value;
     };
 }
+
+function SimpleChatConfig() {
+    this.showUserAvatar = true;
+    this.showComposer = true;
+}
+
+SimpleChatConfig.prototype.setShowUserAvatar = function(value) {
+    this.showUserAvatar = value;
+};
+
+SimpleChatConfig.prototype.setShowComposer = function(value) {
+    this.showComposer = value;
+};
 
 angular
     .module('angular-simple-chat.directives')
@@ -566,12 +568,15 @@ angular
 
 /* @ngInject */
 function simpleChatController(SimpleChatConfiguration) {
-    this.options = SimpleChatConfiguration.options();
+    this.options = new SimpleChatConfig();
+
+    SimpleChatConfiguration.setOptions(this.options);
+
     if (angular.isDefined(this.showUserAvatar)) {
-        SimpleChatConfiguration.setShowUserAvatar(this.showUserAvatar);
+        this.options.setShowUserAvatar(this.showUserAvatar);
     }
     if (angular.isDefined(this.showComposer)) {
-        SimpleChatConfiguration.setShowComposer(this.showComposer);
+        this.options.setShowComposer(this.showComposer);
     }
 }
 
