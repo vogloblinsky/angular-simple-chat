@@ -1,4 +1,6 @@
 .chat-container {
     width: 500px;
     height: 500px;
+    float: left;
+    margin-right: 10px;
 }
