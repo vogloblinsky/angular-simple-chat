@@ -15,7 +15,7 @@ define([
     var scope, compile, element, templateCache, httpBackend, directiveElem, _SimpleChatConfiguration, ctrl,
 
         getCompiledElement = function() {
-            element = angular.element('<simple-chat></simple-chat>');
+            element = angular.element('<simple-chat messages="[]"></simple-chat>');
             var compiledDirective = compile(element)(scope);
             scope.$digest();
             return compiledDirective;
@@ -72,7 +72,7 @@ define([
 
         bdd.it('controller should configure setShowUserAvatar', function() {
             var isolatedScope = directiveElem.scope();
-            expect(_SimpleChatConfiguration.options().showUserAvatar).to.be.false;
+            expect(_SimpleChatConfiguration.getOptions().showUserAvatar).to.be.false;
         });
     });
 });
