@@ -50,11 +50,14 @@ angular
 
 /* @ngInject */
 function simpleChatController(SimpleChatConfiguration) {
-    this.options = SimpleChatConfiguration.options();
+    this.options = new SimpleChatConfig();
+
+    SimpleChatConfiguration.setOptions(this.options);
+
     if (angular.isDefined(this.showUserAvatar)) {
-        SimpleChatConfiguration.setShowUserAvatar(this.showUserAvatar);
+        this.options.setShowUserAvatar(this.showUserAvatar);
     }
     if (angular.isDefined(this.showComposer)) {
-        SimpleChatConfiguration.setShowComposer(this.showComposer);
+        this.options.setShowComposer(this.showComposer);
     }
 }
