@@ -1,6 +1,6 @@
 {
   "name": "angular-simple-chat",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "AngularJS chat directive",
   "main": "dist/angular-simple-chat.js",
   "scripts": {

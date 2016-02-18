@@ -1,3 +1,14 @@
+<a name="1.0.3"></a>
+## 1.0.3 (2016-02-18)
+
+### Bug fix
+
+* isolate configuration override
+
+### Technical
+
+* cleaning configuration sharing between directives
+
 <a name="1.0.2"></a>
 ## 1.0.2 (2016-02-13)
 
