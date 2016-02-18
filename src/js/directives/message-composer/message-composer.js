@@ -8,16 +8,22 @@ function messageComposer() {
         bindToController: true,
         controller: messageComposerController,
         controllerAs: 'mc',
+        link: link,
         restrict: 'AE',
-        templateUrl: 'directives/message-composer/message-composer.html',
-        scope: {
-            localUser: '=',
-            sendFunction: '=',
-            sendButtonText: '=',
-            composerPlaceholderText: '='
-        }
+        require: ['^simpleChat', 'messageComposer'],
+        templateUrl: 'directives/message-composer/message-composer.html'
     };
     return directive;
+
+    function link(scope, element, attrs, controllers) {
+        var simpleChatCtrl = controllers[0],
+            messageComposerCtrl = controllers[1];
+
+        messageComposerCtrl.localUser = simpleChatCtrl.localUser;
+        messageComposerCtrl.sendFunction = simpleChatCtrl.sendFunction;
+        messageComposerCtrl.sendButtonText = simpleChatCtrl.sendButtonText;
+        messageComposerCtrl.composerPlaceholderText = simpleChatCtrl.composerPlaceholderText;
+    }
 }
 
 /* @ngInject */
