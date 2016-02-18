@@ -97,3 +97,33 @@ Event sended when local user send a message
     + if message.date < 1 week && < 3 days ago : display " today/yesterday/the day before yesterday + HH:mm "
     + if message.date < 1 week && > 3 days ago : display " day + HH:mm "
     + if message.date > 1 week : display " day. X month (YYYY) + HH:mm "
+
+# Tests
+
+## In terminal
+
+- run chromedriver in one tab :
+
+```shell
+chromedriver  --port=4444 --url-base=wd/hub
+```
+
+- run tests in another one :
+
+With gulp
+
+```shell
+gulp tests
+```
+
+With npm
+
+```shell
+npm run test-local-terminal
+```
+
+## In a browser
+
+Access this url : 
+
+http://YOUR_LOCAL_WEBSERVER/angular-simple-chat/node_modules/intern/client.html?config=tests/intern.local.browser
