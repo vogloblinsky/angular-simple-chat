@@ -7,11 +7,11 @@ var gulp = require('gulp'),
 
 gulp.task('tests-ng', function() {
     return gulp.src('')
-        .pipe($.run('intern-runner config=test/intern-browser.local reporters=console reporters=lcov reporters=lcovhtml reporters=junit'));
+        .pipe($.run('intern-runner config=tests/intern.local.terminal'));
 });
 
 gulp.task('tests', function() {
     return $.runSequence(
-        'tests-js'
+        'tests-ng'
     );
 });
