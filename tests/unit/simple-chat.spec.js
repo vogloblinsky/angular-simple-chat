@@ -9,10 +9,10 @@ define([
     'intern/order!moment/moment',
     'intern/order!SOURCES/index',
     'intern/order!SOURCES/directives/simple-chat/simple-chat',
-    'intern/order!SOURCES/directives/simple-chat/simple-chat.config.service'
+    'intern/order!SOURCES/directives/simple-chat/simple-chat.config'
 ], function(expect, bdd, template) {
 
-    var scope, compile, element, templateCache, httpBackend, directiveElem, _SimpleChatConfiguration, ctrl,
+    var scope, compile, element, templateCache, httpBackend, directiveElem, ctrl,
 
         getCompiledElement = function() {
             element = angular.element('<simple-chat messages="[]"></simple-chat>');
@@ -28,32 +28,19 @@ define([
     }
 
     bdd.describe('simple-chat directive - init tests', function() {
-        bdd.before(inject(function($rootScope, $compile, $templateCache, $httpBackend, SimpleChatConfiguration, $controller) {
+        bdd.before(inject(function($rootScope, $compile, $templateCache, $httpBackend, $controller) {
             scope = $rootScope.$new();
             compile = $compile;
             templateCache = $templateCache;
             httpBackend = $httpBackend;
-            _SimpleChatConfiguration = SimpleChatConfiguration;
 
             templateCache.put('directives/simple-chat/simple-chat.html', template);
             //httpBackend.whenGET(/directives.*/).respond(200, template);
 
             directiveElem = getCompiledElement();
 
-            ctrl = $controller('simpleChatController', {$scope: scope}, {showUserAvatar: false, sendButtonText: 'envoyer', messages:[{id: 'sdfhoc2838sfd'}]});
+            ctrl = $controller('simpleChatController', {$scope: scope}, {showUserAvatar: false, showComposer: false, sendButtonText: 'envoyer', messages:[{id: 'sdfhoc2838sfd'}]});
         }));
-    });
-
-    bdd.describe('simple-chat directive - scope/controller', function() {
-        bdd.it('showUserAvatar on isolated scope should be two-way bound', function() {
-            expect(ctrl.showUserAvatar).to.be.false;
-        });
-        bdd.it('sendButtonText on isolated scope should be defined', function() {
-            expect(ctrl.sendButtonText).to.equal('envoyer');
-        });
-        bdd.it('messages on isolated scope should be defined and with one element', function() {
-            expect(ctrl.messages.length).to.equal(1);
-        });
     });
 
     bdd.describe('simple-chat directive - template', function() {
@@ -70,9 +57,21 @@ define([
             expect(element.controller).to.be.a('function');
         });
 
-        bdd.it('controller should configure setShowUserAvatar', function() {
-            var isolatedScope = directiveElem.scope();
-            expect(_SimpleChatConfiguration.getOptions().showUserAvatar).to.be.false;
+        bdd.it('controller should configure showUserAvatar', function() {
+            expect(ctrl.options.showUserAvatar).to.be.false;
+        });
+
+        bdd.it('controller should configure showComposer', function() {
+            expect(ctrl.options.showComposer).to.be.false;
+        });
+
+        bdd.it('messages on isolated scope should be defined and with one element', function() {
+            expect(ctrl.messages.length).to.equal(1);
+        });
+
+        bdd.it('sendButtonText on isolated scope should be defined', function() {
+            expect(ctrl.sendButtonText).to.equal('envoyer');
         });
     });
+
 });
