@@ -49,10 +49,8 @@ angular
     .controller('simpleChatController', simpleChatController);
 
 /* @ngInject */
-function simpleChatController(SimpleChatConfiguration) {
+function simpleChatController() {
     this.options = new SimpleChatConfig();
-
-    SimpleChatConfiguration.setOptions(this.options);
 
     if (angular.isDefined(this.showUserAvatar)) {
         this.options.setShowUserAvatar(this.showUserAvatar);
