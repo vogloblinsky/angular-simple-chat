@@ -69,22 +69,19 @@ gulp serve
 
 and open your browser on http://localhost:3000/examples/
 
-# Documentation
+# Description of attributes
 
-## Params
-* messages: array of messages to show. (required)
-Message format is :
-{id: 'string', text: 'string', userId: 'string', date: '1455120273886'}
-* local-user: user object of the user using the app (required)
-{userId: 'string', avatar: 'string', username: 'string'}
-* to-user: user object of the other user using the chat (required)
-{userId: 'string', avatar: 'string', username: 'string'}
-* send-function: function called when user click on send button (required) 
-
-* send-button-text: (optional)
-* composer-placeholder-text: (optional)
-* show-user-avatar: boolean (optional)
-* show-composer: boolean (optional)
+| Attribute | Description | Required | Type | Binding |
+| :------------- |:-------------| :-----:| :-----:| :-----:|
+| messages | array of messages to show. Message format is :
+{id: 'string', text: 'string', userId: 'string', date: '1455120273886'}| Yes | Array | = |
+| local-user | user object of the user using the chat. {userId: 'string', avatar: 'string', username: 'string'}| Yes | Object | = |
+| to-user | user object of the other user using the chat. {userId: 'string', avatar: 'string', username: 'string'}| Yes | Object | = |
+| send-function | function called when user click on send button | Yes | Function | = |
+| send-button-text | function called when user click on send button | No | String | @ |
+| composer-placeholder-text | function called when user click on send button | No | String | @ |
+| show-user-avatar | function called when user click on send button | No |  Boolean | = |
+| show-composer | function called when user click on send button | No |  Boolean | = |
 
 ## Events
 
