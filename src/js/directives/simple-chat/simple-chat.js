@@ -34,6 +34,12 @@ function simpleChat($timeout) {
             $timeout(scrollToBottom, 0);
         });
 
+        scope.$watchCollection(function() {
+            return scope.sc.messages;
+        }, function(newVal, oldVal) {
+            $timeout(scrollToBottom, 0);
+        });
+
         if (angular.isDefined(ctrl.messages) && ctrl.messages.length > 0) {
             $timeout(scrollToBottom, 0);
         }
