@@ -78,7 +78,7 @@ and open your browser on http://localhost:3000/examples/
 | to-user | user object of the other user using the chat. {userId: 'string', avatar: 'string', username: 'string'}| Yes | Object | = |
 | send-function | function called when user click on send button | No | Function | = |
 | send-live-function | function called when user press a key | No | Function | = |
-| live | configure live mode | No | Boolean | = |
+| live-mode | configure live mode | No | Boolean | = |
 | send-button-text | init send button text | No | String | @ |
 | composer-placeholder-text | init composer placeholder text | No | String | @ |
 | show-user-avatar | show/hide user avatar | No | Boolean | = |
