@@ -1,3 +1,14 @@
+<a name="1.0.4"></a>
+## 1.0.4 (2016-02-24)
+
+### Features
+
+* **live:** activate live mode
+
+### Technical
+
+* messages management inside angular-simple-chat directive, not in parent's controller
+
 <a name="1.0.3"></a>
 ## 1.0.3 (2016-02-18)
 
