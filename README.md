@@ -87,6 +87,11 @@ and open your browser on http://localhost:3000/examples/
 ### simple-chat-message-posted
 Event sended when local user send a message
 
+# Live mode
+
+While the first user is writing text on his side, the other user received directly the letters. 
+The end of the bubble is catched when "Enter" key is pressed.
+
 # TODOS
 
 - Display message "time ago" with these rules :
