@@ -28,7 +28,7 @@
         vm.messages = MockMessagesService.getMessages();
 
         vm.sendMessage = function(message) {
-            vm.messages.push(message);
+            console.log('sendMessage');
         };
 
         $scope.$on('simple-chat-message-posted', function() {
