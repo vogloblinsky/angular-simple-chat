@@ -76,11 +76,13 @@ and open your browser on http://localhost:3000/examples/
 | messages | array of messages to show. Message format is : {id: 'string', text: 'string', userId: 'string', date: '1455120273886'}| Yes | Array | = |
 | local-user | user object of the user using the chat. {userId: 'string', avatar: 'string', username: 'string'}| Yes | Object | = |
 | to-user | user object of the other user using the chat. {userId: 'string', avatar: 'string', username: 'string'}| Yes | Object | = |
-| send-function | function called when user click on send button | Yes | Function | = |
-| send-button-text | function called when user click on send button | No | String | @ |
-| composer-placeholder-text | function called when user click on send button | No | String | @ |
-| show-user-avatar | function called when user click on send button | No |  Boolean | = |
-| show-composer | function called when user click on send button | No |  Boolean | = |
+| send-function | function called when user click on send button | No | Function | = |
+| send-live-function | function called when user press a key | No | Function | = |
+| live | configure live mode | No | Boolean | = |
+| send-button-text | init send button text | No | String | @ |
+| composer-placeholder-text | init composer placeholder text | No | String | @ |
+| show-user-avatar | show/hide user avatar | No | Boolean | = |
+| show-composer | show/hide composer | No | Boolean | = |
 
 ## Events
 
