@@ -19,7 +19,9 @@ function simpleChat($timeout) {
             showUserAvatar: '=',
             showComposer: '=',
             sendButtonText: '@',
-            composerPlaceholderText: '@'
+            composerPlaceholderText: '@',
+            liveMode: '=',
+            sendLiveFunction: '='
         }
     };
     return directive;
@@ -63,5 +65,8 @@ function simpleChatController() {
     }
     if (angular.isDefined(this.showComposer)) {
         this.options.setShowComposer(this.showComposer);
+    }
+    if (angular.isDefined(this.liveMode)) {
+        this.options.setLiveMode(this.liveMode);
     }
 }

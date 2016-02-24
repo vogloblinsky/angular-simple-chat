@@ -2,6 +2,10 @@
     <textarea placeholder="{{mc.composerPlaceholderText || 'Write your message here.'}}"
             ng-model="mc.rawmessage"
             name="message"
+            vo-key-up
+            on-key-up="mc._onKeyUp()"
+            on-enter-key="mc._sendWithEnter()"
+            options="mc.options"
             ng-required="true"></textarea>
     <button ng-click="mc._send()"
         ng-disabled="composeForm.$invalid">{{mc.sendButtonText || 'Send'}}</button>
