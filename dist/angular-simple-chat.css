@@ -75,6 +75,10 @@
   transform: rotate(118deg) skew(-5deg);
 }
 
+.chat-bubble .message {
+  word-wrap: break-word;
+}
+
 img.profile-avatar {
   width: 40px;
   height: 40px;
