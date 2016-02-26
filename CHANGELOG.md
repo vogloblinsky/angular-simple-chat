@@ -1,3 +1,10 @@
+<a name="1.0.5"></a>
+## 1.0.5 (2016-02-26)
+
+### Features
+
+* **show-bubble-infos:** show/hide bubble infos
+
 <a name="1.0.4"></a>
 ## 1.0.4 (2016-02-24)
 

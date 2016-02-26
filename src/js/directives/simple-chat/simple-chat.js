@@ -18,6 +18,7 @@ function simpleChat($timeout) {
             sendFunction: '=',
             showUserAvatar: '=',
             showComposer: '=',
+            showBubbleInfos: '=',
             sendButtonText: '@',
             composerPlaceholderText: '@',
             liveMode: '=',
@@ -65,6 +66,9 @@ function simpleChatController() {
     }
     if (angular.isDefined(this.showComposer)) {
         this.options.setShowComposer(this.showComposer);
+    }
+    if (angular.isDefined(this.showBubbleInfos)) {
+        this.options.setShowBubbleInfos(this.showBubbleInfos);
     }
     if (angular.isDefined(this.liveMode)) {
         this.options.setLiveMode(this.liveMode);

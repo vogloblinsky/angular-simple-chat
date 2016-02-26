@@ -4,7 +4,7 @@
         ng-if="cb.options.showUserAvatar"/>
     <div class="chat-bubble-container left"
         ng-class="{'reset-margin-left': !cb.options.showUserAvatar}">
-        <div class="message-detail">
+        <div class="message-detail" ng-if="cb.options.showBubbleInfos">
             <b>{{cb.toUser.username}}, </b>
             <span am-time-ago="cb.message.date"></span>
         </div>
@@ -19,7 +19,7 @@
         ng-if="cb.options.showUserAvatar"/>
     <div class="chat-bubble-container right"
         ng-class="{'reset-margin-right': !cb.options.showUserAvatar}">
-        <div class="message-detail">
+        <div class="message-detail" ng-if="cb.options.showBubbleInfos">
             <b>{{cb.localUser.username}}, </b>
             <span am-time-ago="cb.message.date"></span>
         </div>

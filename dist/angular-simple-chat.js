@@ -1,5 +1,5 @@
 /*
- * angular-simple-chat 1.0.4
+ * angular-simple-chat 1.0.5
  * @description AngularJS chat directive
  * @link https://github.com/vogloblinsky/angular-simple-chat#readme
  * @license MIT
@@ -546,6 +546,7 @@ function SimpleChatConfig() {
     this.showUserAvatar = true;
     this.showComposer = true;
     this.liveMode = false;
+    this.showBubbleInfos = true;
 }
 
 SimpleChatConfig.prototype.setShowUserAvatar = function(value) {
@@ -558,6 +559,10 @@ SimpleChatConfig.prototype.setShowComposer = function(value) {
 
 SimpleChatConfig.prototype.setLiveMode = function(value) {
     this.liveMode = value;
+};
+
+SimpleChatConfig.prototype.setShowBubbleInfos = function(value) {
+    this.showBubbleInfos = value;
 };
 
 angular
@@ -580,6 +585,7 @@ function simpleChat($timeout) {
             sendFunction: '=',
             showUserAvatar: '=',
             showComposer: '=',
+            showBubbleInfos: '=',
             sendButtonText: '@',
             composerPlaceholderText: '@',
             liveMode: '=',
@@ -628,6 +634,9 @@ function simpleChatController() {
     if (angular.isDefined(this.showComposer)) {
         this.options.setShowComposer(this.showComposer);
     }
+    if (angular.isDefined(this.showBubbleInfos)) {
+        this.options.setShowBubbleInfos(this.showBubbleInfos);
+    }
     if (angular.isDefined(this.liveMode)) {
         this.options.setLiveMode(this.liveMode);
     }
@@ -673,7 +682,7 @@ function voKeyUp($timeout) {
     }
 }
 
-angular.module("angular-simple-chat.directives").run(["$templateCache", function($templateCache) {$templateCache.put("directives/chat-bubble/chat-bubble.html","<div ng-if=\"cb.localUser.userId !== cb.message.userId\">\n    <img class=\"profile-avatar left\"\n        ng-src=\"{{cb.toUser.avatar}}\"\n        ng-if=\"cb.options.showUserAvatar\"/>\n    <div class=\"chat-bubble-container left\"\n        ng-class=\"{\'reset-margin-left\': !cb.options.showUserAvatar}\">\n        <div class=\"message-detail\">\n            <b>{{cb.toUser.username}}, </b>\n            <span am-time-ago=\"cb.message.date\"></span>\n        </div>\n        <div class=\"chat-bubble left\">\n            <div class=\"message\">{{cb.message.text}}</div>\n        </div>\n    </div>\n</div>\n<div ng-if=\"cb.localUser.userId === cb.message.userId\">\n    <img class=\"profile-avatar right\"\n        ng-src=\"{{cb.localUser.avatar}}\"\n        ng-if=\"cb.options.showUserAvatar\"/>\n    <div class=\"chat-bubble-container right\"\n        ng-class=\"{\'reset-margin-right\': !cb.options.showUserAvatar}\">\n        <div class=\"message-detail\">\n            <b>{{cb.localUser.username}}, </b>\n            <span am-time-ago=\"cb.message.date\"></span>\n        </div>\n        <div class=\"chat-bubble right\">\n            <div class=\"message\">{{cb.message.text}}</div>\n        </div>\n    </div>\n</div>\n");
+angular.module("angular-simple-chat.directives").run(["$templateCache", function($templateCache) {$templateCache.put("directives/chat-bubble/chat-bubble.html","<div ng-if=\"cb.localUser.userId !== cb.message.userId\">\n    <img class=\"profile-avatar left\"\n        ng-src=\"{{cb.toUser.avatar}}\"\n        ng-if=\"cb.options.showUserAvatar\"/>\n    <div class=\"chat-bubble-container left\"\n        ng-class=\"{\'reset-margin-left\': !cb.options.showUserAvatar}\">\n        <div class=\"message-detail\" ng-if=\"cb.options.showBubbleInfos\">\n            <b>{{cb.toUser.username}}, </b>\n            <span am-time-ago=\"cb.message.date\"></span>\n        </div>\n        <div class=\"chat-bubble left\">\n            <div class=\"message\">{{cb.message.text}}</div>\n        </div>\n    </div>\n</div>\n<div ng-if=\"cb.localUser.userId === cb.message.userId\">\n    <img class=\"profile-avatar right\"\n        ng-src=\"{{cb.localUser.avatar}}\"\n        ng-if=\"cb.options.showUserAvatar\"/>\n    <div class=\"chat-bubble-container right\"\n        ng-class=\"{\'reset-margin-right\': !cb.options.showUserAvatar}\">\n        <div class=\"message-detail\" ng-if=\"cb.options.showBubbleInfos\">\n            <b>{{cb.localUser.username}}, </b>\n            <span am-time-ago=\"cb.message.date\"></span>\n        </div>\n        <div class=\"chat-bubble right\">\n            <div class=\"message\">{{cb.message.text}}</div>\n        </div>\n    </div>\n</div>\n");
 $templateCache.put("directives/message-composer/message-composer.html","<form name=\"composeForm\">\n    <textarea placeholder=\"{{mc.composerPlaceholderText || \'Write your message here.\'}}\"\n            ng-model=\"mc.rawmessage\"\n            name=\"message\"\n            vo-key-up\n            on-key-up=\"mc._onKeyUp()\"\n            on-enter-key=\"mc._sendWithEnter()\"\n            options=\"mc.options\"\n            ng-required=\"true\"></textarea>\n    <button ng-click=\"mc._send()\"\n        ng-disabled=\"composeForm.$invalid\">{{mc.sendButtonText || \'Send\'}}</button>\n</form>\n");
 $templateCache.put("directives/simple-chat/simple-chat.html","<div class=\"simple-chat-container\"\n    ng-class=\"{\'full-height\': !sc.options.showComposer}\">\n    <div ng-repeat=\"message in sc.messages track by message.id\" class=\"message-wrapper\">\n        <chat-bubble\n            message=\"message\"\n            class=\"chat-bubble-main-container\"\n        ></chat-bubble>\n    </div>\n</div>\n<message-composer\n    ng-if=\"sc.options.showComposer\"\n></message-composer>\n");}]);
 }());

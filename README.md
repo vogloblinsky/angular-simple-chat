@@ -83,6 +83,7 @@ and open your browser on http://localhost:3000/examples/
 | composer-placeholder-text | init composer placeholder text | No | String | @ |
 | show-user-avatar | show/hide user avatar | No | Boolean | = |
 | show-composer | show/hide composer | No | Boolean | = |
+| show-bubble-infos | show/hide bubble infos | No | Boolean | = |
 
 ## Events
 
