@@ -1,3 +1,10 @@
+<a name="1.0.7"></a>
+## 1.0.7 (2016-02-28)
+
+### Features
+
+* live flags added (startSentence, endSentence)
+
 <a name="1.0.6"></a>
 ## 1.0.6 (2016-02-26)
 
