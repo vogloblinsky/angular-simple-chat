@@ -55,9 +55,13 @@ angular.module('app', ['angular-simple-chat']);
 <simple-chat
     messages="AppView.messages"
     local-user="AppView.you"
-    to-user="AppView.guy"
 ></simple-chat>
 ```
+
+# Interaction
+
+The component is just responsable of displaying messages, and writing them.
+The synchronisation between different clients is not implemented.
 
 # Running the examples
 
@@ -75,9 +79,8 @@ and open your browser on http://localhost:3000/examples/
 | :------------- |:-------------| :-----:| :-----:| :-----:|
 | messages | array of messages to show. Message format is : {id: 'string', text: 'string', userId: 'string', date: '1455120273886'}| Yes | Array | = |
 | local-user | user object of the user using the chat. {userId: 'string', avatar: 'string', username: 'string'}| Yes | Object | = |
-| to-user | user object of the other user using the chat. {userId: 'string', avatar: 'string', username: 'string'}| Yes | Object | = |
 | send-function | function called when user click on send button | No | Function | = |
-| send-live-function | function called when user press a key | No | Function | = |
+| live-flag-function | function called to submit flags | No | Function | = |
 | live-mode | configure live mode | No | Boolean | = |
 | send-button-text | init send button text | No | String | @ |
 | composer-placeholder-text | init composer placeholder text | No | String | @ |
@@ -94,6 +97,9 @@ Event sended when local user send a message
 
 While the first user is writing text on his side, the other user received directly the letters. 
 The end of the bubble is catched when "Enter" key is pressed.
+Flags are sended with liveFlagFunction to explain sequence who people writing text :
+- startSentence
+- endSentence
 
 # TODOS
 

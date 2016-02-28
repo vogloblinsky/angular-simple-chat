@@ -25,33 +25,57 @@ function messageComposer() {
         messageComposerCtrl.composerPlaceholderText = simpleChatCtrl.composerPlaceholderText;
         messageComposerCtrl.options = simpleChatCtrl.options;
         messageComposerCtrl.messages = simpleChatCtrl.messages;
-        messageComposerCtrl.sendLiveFunction = simpleChatCtrl.sendLiveFunction;
+        messageComposerCtrl.liveFlagFunction = simpleChatCtrl.liveFlagFunction;
     }
 }
 
 /* @ngInject */
 function messageComposerController($scope) {
     var that = this,
-        resetLiveLastMessageReference = true,
+        resetLiveLastMessageReference = false,
         _sendFx = function() {
             if (!angular.isDefined(that.rawmessage)) {
                 return;
             }
             var _message = {
                 id: 'sc' + Date.now(),
+                type: 'message',
                 text: that.rawmessage,
                 userId: that.localUser.userId,
+                avatar: that.localUser.avatar,
+                username: that.localUser.username,
                 date: Date.now()
             };
-            that.sendFunction(_message);
-            if (angular.isDefined(that.sendLiveFunction)) {
-                that.sendLiveFunction(_message);
+            if (that.options.liveMode && angular.isDefined(that.liveFlagFunction) && that.rawmessage.length === 1) {
+                that.liveFlagFunction({
+                    id: 'sc' + Date.now(),
+                    type: 'flag',
+                    userId: that.localUser.userId,
+                    label: 'startSentence'
+                });
+            }
+            if (!resetLiveLastMessageReference) {
+                that.sendFunction(_message);
             }
             if (that.options.liveMode && !resetLiveLastMessageReference) {
-                that.messages[that.messages.length - 1] = _message;
+                if (that.messages.length === 0) {
+                    that.messages.push(_message);
+                } else {
+                    if (that.rawmessage.length === 1) {
+                        that.messages.push(_message);
+                    } else {
+                        that.messages[that.messages.length - 1] = _message;
+                    }
+                }
             } else if (that.options.liveMode && resetLiveLastMessageReference) {
-                that.messages.push(_message);
                 resetLiveLastMessageReference = false;
+                that.rawmessage = '';
+                that.liveFlagFunction({
+                    id: 'sc' + Date.now(),
+                    type: 'flag',
+                    userId: that.localUser.userId,
+                    label: 'endSentence'
+                });
             } else {
                 that.messages.push(_message);
             }
@@ -62,19 +86,9 @@ function messageComposerController($scope) {
         };
     this._send = function() {
         if (this.options.liveMode) {
-            this.rawmessage = '';
             resetLiveLastMessageReference = true;
-        } else {
-            _sendFx();
         }
-    };
-    this._sendWithEnter = function() {
-        if (this.options.liveMode) {
-            this.rawmessage = '';
-            resetLiveLastMessageReference = true;
-        } else {
-            _sendFx();
-        }
+        _sendFx();
     };
     this._onKeyUp = function() {
         if (this.options.liveMode) {

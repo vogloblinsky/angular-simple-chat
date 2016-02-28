@@ -24,7 +24,6 @@ function chatBubble() {
 
         chatBubbleCtrl.options = simpleChatCtrl.options;
         chatBubbleCtrl.localUser = simpleChatCtrl.localUser;
-        chatBubbleCtrl.toUser = simpleChatCtrl.toUser;
     }
 }
 

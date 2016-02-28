@@ -24,6 +24,9 @@
     "moment": "momentjs#^2.11.2"
   },
   "devDependencies": {
-    "angular-mocks": "1.4.9"
+    "angular-mocks": "1.4.9",
+    "chance": "^1.0.0",
+    "pubnub": "^3.13.0",
+    "pubnub-angular": "^3.1.1"
   }
 }

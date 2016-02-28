@@ -12,9 +12,20 @@
     function UserController($scope, Pubnub) {
         var vm = this,
             channel = 'chat',
+            liveSentenceStarted = false,
             onPubNubMessage = function(message, envelope, channelOrGroup, time, channel) {
                 if (message.userId !== vm.you.userId) {
-                    vm.messages.push(message);
+                    if (vm.liveModeEnabled) {
+                        if (message.type === 'flag' && message.label === 'startSentence') {
+                            vm.messages.push(message);
+                        } else if (message.type === 'message') {
+                            vm.messages[vm.messages.length - 1] = message;
+                        }
+                    } else {
+                        if (message.type === 'message') {
+                            vm.messages.push(message);
+                        }
+                    }
                     $scope.$apply();
                 }
             };
@@ -27,6 +38,8 @@
             })
         };
 
+        vm.liveModeEnabled = false;
+
         vm.messages = [];
 
         vm.sendMessage = function(message) {
@@ -37,8 +50,12 @@
             });
         };
 
-        vm.sendLiveMessage = function(message) {
-            console.log('sendLiveMessage: ', message);
+        vm.liveFlagFunction = function(flag) {
+            console.log('liveFlagFunction: ', flag);
+            Pubnub.publish({
+                channel: channel,
+                message: flag
+            });
         };
 
         Pubnub.init({
