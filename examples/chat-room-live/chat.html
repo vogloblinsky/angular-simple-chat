@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>
-        AngularJS + Bootstrap Chat Directive Live Example
+        AngularJS Simple Chat Directive - Live Example
     </title>
     <link rel="stylesheet" href="../../.tmp/styles/index.css">
     <link rel="stylesheet" type="text/css" href="../app.css">
@@ -12,42 +12,30 @@
 
 <body>
 
-    <div class="chat-container" ng-controller="User1Controller as User1View">
+    <div class="chat-container" ng-controller="UserController as UserView">
         <simple-chat
-            messages="User1View.messages"
-            local-user="User1View.you"
-            to-user="User1View.guy"
-            send-function="User1View.sendMessage"
+            messages="UserView.messages"
+            local-user="UserView.you"
+            to-user="UserView.guy"
+            send-function="UserView.sendMessage"
             send-button-text="Send"
             show-user-avatar="true"
             show-composer="true"
-            live-mode="true"
-            send-live-function="User1View.sendLiveMessage"
+            live-mode="false"
+            send-live-function="UserView.sendLiveMessage"
             composer-placeholder-text="Write your message here"
         ></simple-chat>
     </div>
 
-    <div class="chat-container" ng-controller="User2Controller as User2View">
-        <simple-chat
-            messages="User2View.messages"
-            local-user="User2View.you"
-            to-user="User2View.guy"
-            send-function="User2View.sendMessage"
-            send-button-text="Send"
-            show-user-avatar="true"
-            show-composer="false"
-            live-mode="true"
-            receive-live-function="User2View.receiveLiveMessage"
-        ></simple-chat>
-    </div>
-
+    <script src="../../bower_components/pubnub/web/dist/pubnub.js"></script>
+    <script src="../../bower_components/chance/chance.js"></script>
     <script src="../../bower_components/angular/angular.js"></script>
+    <script src="../../bower_components/pubnub-angular/dist/pubnub-angular-3.1.1.js"></script>
     <script src="../../bower_components/moment/moment.js"></script>
     <script src="../../bower_components/moment/locale/fr.js"></script>
     <script src="../../.tmp/scripts/angular-simple-chat.js"></script>
     <script src="../../.tmp/scripts/templates.js"></script>
     <script src="chat.js"></script>
-    <script src="messaging-service.js"></script>
 </body>
 
 </html>
