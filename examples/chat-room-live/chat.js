@@ -33,7 +33,7 @@
         vm.you = {
             userId: PUBNUB.uuid(),
             avatar: 'http://www.orangecountyjailministryorlando.com/wp-content/uploads/2015/01/Woman_Avatar.gif',
-            username: chance.first({
+            userName: chance.first({
                 gender: 'female'
             })
         };

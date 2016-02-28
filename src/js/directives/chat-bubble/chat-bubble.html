@@ -5,7 +5,7 @@
     <div class="chat-bubble-container left"
         ng-class="{'reset-margin-left': !cb.options.showUserAvatar}">
         <div class="message-detail" ng-if="cb.options.showBubbleInfos">
-            <b>{{cb.message.username}}, </b>
+            <b>{{cb.message.userName}}, </b>
             <span am-time-ago="cb.message.date"></span>
         </div>
         <div class="chat-bubble left">
@@ -20,7 +20,7 @@
     <div class="chat-bubble-container right"
         ng-class="{'reset-margin-right': !cb.options.showUserAvatar}">
         <div class="message-detail" ng-if="cb.options.showBubbleInfos">
-            <b>{{cb.localUser.username}}, </b>
+            <b>{{cb.localUser.userName}}, </b>
             <span am-time-ago="cb.message.date"></span>
         </div>
         <div class="chat-bubble right">

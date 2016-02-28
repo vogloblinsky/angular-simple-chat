@@ -16,7 +16,7 @@
         vm.you = {
             userId: '4562KDJYE72930DST283DFY202Dd',
             avatar: 'http://www.orangecountyjailministryorlando.com/wp-content/uploads/2015/01/Woman_Avatar.gif',
-            username: 'Anna'
+            userName: 'Anna'
         };
 
         vm.messages = MockMessagesService.getMessages();
