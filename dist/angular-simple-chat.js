@@ -426,6 +426,38 @@ function amTimeAgo($window, moment, amMoment, amTimeAgoConfig, angularMomentConf
 
 angular
     .module('angular-simple-chat.directives')
+    .directive('chatBubble', chatBubble);
+
+/* @ngInject */
+function chatBubble() {
+    var directive = {
+        bindToController: true,
+        controller: chatBubbleController,
+        controllerAs: 'cb',
+        link: link,
+        restrict: 'AE',
+        require: ['^simpleChat', 'chatBubble'],
+        templateUrl: 'directives/chat-bubble/chat-bubble.html',
+        scope: {
+            message: '='
+        }
+    };
+    return directive;
+
+    function link(scope, element, attrs, controllers) {
+        var simpleChatCtrl = controllers[0],
+            chatBubbleCtrl = controllers[1];
+
+        chatBubbleCtrl.options = simpleChatCtrl.options;
+        chatBubbleCtrl.localUser = simpleChatCtrl.localUser;
+    }
+}
+
+/* @ngInject */
+function chatBubbleController() {}
+
+angular
+    .module('angular-simple-chat.directives')
     .directive('messageComposer', messageComposer);
 
 /* @ngInject */
@@ -469,7 +501,7 @@ function messageComposerController($scope) {
                 text: that.rawmessage,
                 userId: that.localUser.userId,
                 avatar: that.localUser.avatar,
-                username: that.localUser.username,
+                userName: that.localUser.username,
                 date: Date.now()
             };
             if (that.options.liveMode && angular.isDefined(that.liveFlagFunction) && that.rawmessage.length === 1) {
@@ -522,38 +554,6 @@ function messageComposerController($scope) {
         }
     };
 }
-
-angular
-    .module('angular-simple-chat.directives')
-    .directive('chatBubble', chatBubble);
-
-/* @ngInject */
-function chatBubble() {
-    var directive = {
-        bindToController: true,
-        controller: chatBubbleController,
-        controllerAs: 'cb',
-        link: link,
-        restrict: 'AE',
-        require: ['^simpleChat', 'chatBubble'],
-        templateUrl: 'directives/chat-bubble/chat-bubble.html',
-        scope: {
-            message: '='
-        }
-    };
-    return directive;
-
-    function link(scope, element, attrs, controllers) {
-        var simpleChatCtrl = controllers[0],
-            chatBubbleCtrl = controllers[1];
-
-        chatBubbleCtrl.options = simpleChatCtrl.options;
-        chatBubbleCtrl.localUser = simpleChatCtrl.localUser;
-    }
-}
-
-/* @ngInject */
-function chatBubbleController() {}
 
 function SimpleChatConfig() {
     this.showUserAvatar = true;
