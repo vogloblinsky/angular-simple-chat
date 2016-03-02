@@ -1,3 +1,10 @@
+<a name="1.0.10"></a>
+## 1.0.10 (2016-03-02)
+
+### Bug fix
+
+* userName instead of username
+
 <a name="1.0.9"></a>
 ## 1.0.9 (2016-03-02)
 
