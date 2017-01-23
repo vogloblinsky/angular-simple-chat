@@ -1,5 +1,5 @@
 /*
- * angular-simple-chat 1.0.10
+ * angular-simple-chat 1.0.11
  * @description AngularJS chat directive
  * @link https://github.com/vogloblinsky/angular-simple-chat#readme
  * @license MIT
