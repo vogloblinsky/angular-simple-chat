@@ -59,7 +59,6 @@
 .chat-bubble.left::before {
   background-color: #e6e5eb;
   left: 4px;
-  -webkit-transform: rotate(70deg) skew(5deg);
   transform: rotate(70deg) skew(5deg);
 }
 
@@ -71,7 +70,6 @@
 .chat-bubble.right::before {
   background-color: #158ffe;
   right: 4px;
-  -webkit-transform: rotate(118deg) skew(-5deg);
   transform: rotate(118deg) skew(-5deg);
 }
 
@@ -109,7 +107,6 @@ message-composer :focus {
 }
 
 message-composer form {
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
@@ -118,7 +115,6 @@ message-composer textarea {
   margin: 5px;
   padding: 0;
   border: 0;
-  -webkit-flex-grow: 2;
   -ms-flex-positive: 2;
   flex-grow: 2;
   background-color: #f8f8f8;

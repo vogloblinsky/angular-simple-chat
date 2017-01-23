@@ -43,7 +43,7 @@ function messageComposerController($scope) {
                 text: that.rawmessage,
                 userId: that.localUser.userId,
                 avatar: that.localUser.avatar,
-                userName: that.localUser.username,
+                userName: that.localUser.userName,
                 date: Date.now()
             };
             if (that.options.liveMode && angular.isDefined(that.liveFlagFunction) && that.rawmessage.length === 1) {
