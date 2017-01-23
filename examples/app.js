@@ -15,7 +15,7 @@
 
         vm.you = {
             userId: '4562KDJYE72930DST283DFY202Dd',
-            avatar: 'http://www.orangecountyjailministryorlando.com/wp-content/uploads/2015/01/Woman_Avatar.gif',
+            avatar: 'http://www.freelanceweb16.fr/wp-content/uploads/2015/08/Woman_Avatar.gif',
             userName: 'Anna'
         };
 
@@ -43,6 +43,7 @@
                 id: '535d625f898df4e80e2a125e',
                 text: 'Fotzu isoko vo adget ne uba in lup jedzow mi uvinifse epepo het ezezocic bahehufep lid pubuj.',
                 userId: 'hilsqdhfods5990K226DHS01NOHoh',
+                userName: 'Jean',
                 avatar: 'http://polyligne.be/wp-content/uploads/2014/06/Man_Avatar.gif',
                 date: '1455110273886'
             }, {
@@ -54,6 +55,7 @@
                 id: '546a5843fd4c5d581efa263a',
                 text: 'Vad vo ujcofwag pelobhuz wonogmo cikutew imoissuv no doso jum govhi peva aj ven narzir gac rofbufubo il.',
                 userId: 'hilsqdhfods5990K226DHS01NOHoh',
+                userName: 'Jean',
                 avatar: 'http://polyligne.be/wp-content/uploads/2014/06/Man_Avatar.gif',
                 date: '1455110173886'
             }, {
@@ -65,6 +67,7 @@
                 id: '547643aeab43d1d4113abfd2',
                 text: 'Leeczo gokurus cif wepke nidji dabuti wi itco aduzab anru cev do surakip.',
                 userId: 'hilsqdhfods5990K226DHS01NOHoh',
+                userName: 'Jean',
                 avatar: 'http://polyligne.be/wp-content/uploads/2014/06/Man_Avatar.gif',
                 date: '1455110483886'
             }, {

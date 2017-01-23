@@ -1,5 +1,5 @@
 /*
- * angular-simple-chat 1.0.10
+ * angular-simple-chat 1.0.11
  * @description AngularJS chat directive
  * @link https://github.com/vogloblinsky/angular-simple-chat#readme
  * @license MIT
@@ -8,8 +8,8 @@
 "use strict";
 
 amTimeAgo.$inject = ["$window", "moment", "amMoment", "amTimeAgoConfig", "angularMomentConfig"];
-simpleChat.$inject = ["$timeout"];
 messageComposerController.$inject = ["$scope"];
+simpleChat.$inject = ["$timeout"];
 voKeyUp.$inject = ["$timeout"];angular
     .module('angular-simple-chat', [
         'angular-simple-chat.directives'
@@ -456,6 +456,105 @@ function chatBubble() {
 /* @ngInject */
 function chatBubbleController() {}
 
+angular
+    .module('angular-simple-chat.directives')
+    .directive('messageComposer', messageComposer);
+
+/* @ngInject */
+function messageComposer() {
+    var directive = {
+        bindToController: true,
+        controller: messageComposerController,
+        controllerAs: 'mc',
+        link: link,
+        restrict: 'AE',
+        require: ['^simpleChat', 'messageComposer'],
+        templateUrl: 'directives/message-composer/message-composer.html'
+    };
+    return directive;
+
+    function link(scope, element, attrs, controllers) {
+        var simpleChatCtrl = controllers[0],
+            messageComposerCtrl = controllers[1];
+
+        messageComposerCtrl.localUser = simpleChatCtrl.localUser;
+        messageComposerCtrl.sendFunction = simpleChatCtrl.sendFunction;
+        messageComposerCtrl.sendButtonText = simpleChatCtrl.sendButtonText;
+        messageComposerCtrl.composerPlaceholderText = simpleChatCtrl.composerPlaceholderText;
+        messageComposerCtrl.options = simpleChatCtrl.options;
+        messageComposerCtrl.messages = simpleChatCtrl.messages;
+        messageComposerCtrl.liveFlagFunction = simpleChatCtrl.liveFlagFunction;
+    }
+}
+
+/* @ngInject */
+function messageComposerController($scope) {
+    var that = this,
+        resetLiveLastMessageReference = false,
+        _sendFx = function() {
+            if (!angular.isDefined(that.rawmessage)) {
+                return;
+            }
+            var _message = {
+                id: 'sc' + Date.now(),
+                type: 'message',
+                text: that.rawmessage,
+                userId: that.localUser.userId,
+                avatar: that.localUser.avatar,
+                userName: that.localUser.userName,
+                date: Date.now()
+            };
+            if (that.options.liveMode && angular.isDefined(that.liveFlagFunction) && that.rawmessage.length === 1) {
+                that.liveFlagFunction({
+                    id: 'sc' + Date.now(),
+                    type: 'flag',
+                    userId: that.localUser.userId,
+                    label: 'startSentence'
+                });
+            }
+            if (!resetLiveLastMessageReference) {
+                that.sendFunction(_message);
+            }
+            if (that.options.liveMode && !resetLiveLastMessageReference) {
+                if (that.messages.length === 0) {
+                    that.messages.push(_message);
+                } else {
+                    if (that.rawmessage.length === 1) {
+                        that.messages.push(_message);
+                    } else {
+                        that.messages[that.messages.length - 1] = _message;
+                    }
+                }
+            } else if (that.options.liveMode && resetLiveLastMessageReference) {
+                resetLiveLastMessageReference = false;
+                that.rawmessage = '';
+                that.liveFlagFunction({
+                    id: 'sc' + Date.now(),
+                    type: 'flag',
+                    userId: that.localUser.userId,
+                    label: 'endSentence'
+                });
+            } else {
+                that.messages.push(_message);
+            }
+            $scope.$emit('simple-chat-message-posted');
+            if (!that.options.liveMode) {
+                that.rawmessage = '';
+            }
+        };
+    this._send = function() {
+        if (this.options.liveMode) {
+            resetLiveLastMessageReference = true;
+        }
+        _sendFx();
+    };
+    this._onKeyUp = function() {
+        if (this.options.liveMode) {
+            _sendFx();
+        }
+    };
+}
+
 function SimpleChatConfig() {
     this.showUserAvatar = true;
     this.showComposer = true;
@@ -557,105 +656,6 @@ function simpleChatController() {
 
 angular
     .module('angular-simple-chat.directives')
-    .directive('messageComposer', messageComposer);
-
-/* @ngInject */
-function messageComposer() {
-    var directive = {
-        bindToController: true,
-        controller: messageComposerController,
-        controllerAs: 'mc',
-        link: link,
-        restrict: 'AE',
-        require: ['^simpleChat', 'messageComposer'],
-        templateUrl: 'directives/message-composer/message-composer.html'
-    };
-    return directive;
-
-    function link(scope, element, attrs, controllers) {
-        var simpleChatCtrl = controllers[0],
-            messageComposerCtrl = controllers[1];
-
-        messageComposerCtrl.localUser = simpleChatCtrl.localUser;
-        messageComposerCtrl.sendFunction = simpleChatCtrl.sendFunction;
-        messageComposerCtrl.sendButtonText = simpleChatCtrl.sendButtonText;
-        messageComposerCtrl.composerPlaceholderText = simpleChatCtrl.composerPlaceholderText;
-        messageComposerCtrl.options = simpleChatCtrl.options;
-        messageComposerCtrl.messages = simpleChatCtrl.messages;
-        messageComposerCtrl.liveFlagFunction = simpleChatCtrl.liveFlagFunction;
-    }
-}
-
-/* @ngInject */
-function messageComposerController($scope) {
-    var that = this,
-        resetLiveLastMessageReference = false,
-        _sendFx = function() {
-            if (!angular.isDefined(that.rawmessage)) {
-                return;
-            }
-            var _message = {
-                id: 'sc' + Date.now(),
-                type: 'message',
-                text: that.rawmessage,
-                userId: that.localUser.userId,
-                avatar: that.localUser.avatar,
-                userName: that.localUser.userName,
-                date: Date.now()
-            };
-            if (that.options.liveMode && angular.isDefined(that.liveFlagFunction) && that.rawmessage.length === 1) {
-                that.liveFlagFunction({
-                    id: 'sc' + Date.now(),
-                    type: 'flag',
-                    userId: that.localUser.userId,
-                    label: 'startSentence'
-                });
-            }
-            if (!resetLiveLastMessageReference) {
-                that.sendFunction(_message);
-            }
-            if (that.options.liveMode && !resetLiveLastMessageReference) {
-                if (that.messages.length === 0) {
-                    that.messages.push(_message);
-                } else {
-                    if (that.rawmessage.length === 1) {
-                        that.messages.push(_message);
-                    } else {
-                        that.messages[that.messages.length - 1] = _message;
-                    }
-                }
-            } else if (that.options.liveMode && resetLiveLastMessageReference) {
-                resetLiveLastMessageReference = false;
-                that.rawmessage = '';
-                that.liveFlagFunction({
-                    id: 'sc' + Date.now(),
-                    type: 'flag',
-                    userId: that.localUser.userId,
-                    label: 'endSentence'
-                });
-            } else {
-                that.messages.push(_message);
-            }
-            $scope.$emit('simple-chat-message-posted');
-            if (!that.options.liveMode) {
-                that.rawmessage = '';
-            }
-        };
-    this._send = function() {
-        if (this.options.liveMode) {
-            resetLiveLastMessageReference = true;
-        }
-        _sendFx();
-    };
-    this._onKeyUp = function() {
-        if (this.options.liveMode) {
-            _sendFx();
-        }
-    };
-}
-
-angular
-    .module('angular-simple-chat.directives')
     .directive('voKeyUp', voKeyUp);
 
 /* @ngInject */
@@ -694,7 +694,7 @@ function voKeyUp($timeout) {
     }
 }
 
-angular.module("angular-simple-chat.directives").run(["$templateCache", function($templateCache) {$templateCache.put("directives/message-composer/message-composer.html","<form name=\"composeForm\">\n    <textarea placeholder=\"{{mc.composerPlaceholderText || \'Write your message here.\'}}\"\n            ng-model=\"mc.rawmessage\"\n            name=\"message\"\n            vo-key-up\n            on-key-up=\"mc._onKeyUp()\"\n            on-enter-key=\"mc._send()\"\n            options=\"mc.options\"\n            ng-required=\"true\"></textarea>\n    <button ng-click=\"mc._send()\"\n        ng-disabled=\"composeForm.$invalid\">{{mc.sendButtonText || \'Send\'}}</button>\n</form>\n");
-$templateCache.put("directives/chat-bubble/chat-bubble.html","<div ng-if=\"cb.localUser.userId !== cb.message.userId\">\n    <img class=\"profile-avatar left\"\n        ng-src=\"{{cb.message.avatar}}\"\n        ng-if=\"cb.options.showUserAvatar\"/>\n    <div class=\"chat-bubble-container left\"\n        ng-class=\"{\'reset-margin-left\': !cb.options.showUserAvatar}\">\n        <div class=\"message-detail\" ng-if=\"cb.options.showBubbleInfos\">\n            <b>{{cb.message.userName}}, </b>\n            <span am-time-ago=\"cb.message.date\"></span>\n        </div>\n        <div class=\"chat-bubble left\">\n            <div class=\"message\">{{cb.message.text}}</div>\n        </div>\n    </div>\n</div>\n<div ng-if=\"cb.localUser.userId === cb.message.userId\">\n    <img class=\"profile-avatar right\"\n        ng-src=\"{{cb.localUser.avatar}}\"\n        ng-if=\"cb.options.showUserAvatar\"/>\n    <div class=\"chat-bubble-container right\"\n        ng-class=\"{\'reset-margin-right\': !cb.options.showUserAvatar}\">\n        <div class=\"message-detail\" ng-if=\"cb.options.showBubbleInfos\">\n            <b>{{cb.localUser.userName}}, </b>\n            <span am-time-ago=\"cb.message.date\"></span>\n        </div>\n        <div class=\"chat-bubble right\">\n            <div class=\"message\">{{cb.message.text}}</div>\n        </div>\n    </div>\n</div>\n");
+angular.module("angular-simple-chat.directives").run(["$templateCache", function($templateCache) {$templateCache.put("directives/chat-bubble/chat-bubble.html","<div ng-if=\"cb.localUser.userId !== cb.message.userId\">\n    <img class=\"profile-avatar left\"\n        ng-src=\"{{cb.message.avatar}}\"\n        ng-if=\"cb.options.showUserAvatar\"/>\n    <div class=\"chat-bubble-container left\"\n        ng-class=\"{\'reset-margin-left\': !cb.options.showUserAvatar}\">\n        <div class=\"message-detail\" ng-if=\"cb.options.showBubbleInfos\">\n            <b>{{cb.message.userName}}, </b>\n            <span am-time-ago=\"cb.message.date\"></span>\n        </div>\n        <div class=\"chat-bubble left\">\n            <div class=\"message\">{{cb.message.text}}</div>\n        </div>\n    </div>\n</div>\n<div ng-if=\"cb.localUser.userId === cb.message.userId\">\n    <img class=\"profile-avatar right\"\n        ng-src=\"{{cb.localUser.avatar}}\"\n        ng-if=\"cb.options.showUserAvatar\"/>\n    <div class=\"chat-bubble-container right\"\n        ng-class=\"{\'reset-margin-right\': !cb.options.showUserAvatar}\">\n        <div class=\"message-detail\" ng-if=\"cb.options.showBubbleInfos\">\n            <b>{{cb.localUser.userName}}, </b>\n            <span am-time-ago=\"cb.message.date\"></span>\n        </div>\n        <div class=\"chat-bubble right\">\n            <div class=\"message\">{{cb.message.text}}</div>\n        </div>\n    </div>\n</div>\n");
+$templateCache.put("directives/message-composer/message-composer.html","<form name=\"composeForm\">\n    <textarea ng-attr-placeholder=\"{{mc.composerPlaceholderText || \'Write your message here.\'}}\"\n            ng-model=\"mc.rawmessage\"\n            name=\"message\"\n            vo-key-up\n            on-key-up=\"mc._onKeyUp()\"\n            on-enter-key=\"mc._send()\"\n            options=\"mc.options\"\n            ng-required=\"true\"></textarea>\n    <button ng-click=\"mc._send()\"\n        ng-disabled=\"composeForm.$invalid\">{{mc.sendButtonText || \'Send\'}}</button>\n</form>\n");
 $templateCache.put("directives/simple-chat/simple-chat.html","<div class=\"simple-chat-container\"\n    ng-class=\"{\'full-height\': !sc.options.showComposer}\">\n    <div ng-repeat=\"message in sc.messages track by message.id\" class=\"message-wrapper\">\n        <chat-bubble\n            message=\"message\"\n            class=\"chat-bubble-main-container\"\n        ></chat-bubble>\n    </div>\n</div>\n<message-composer\n    ng-if=\"sc.options.showComposer\"\n></message-composer>\n");}]);
 }());
