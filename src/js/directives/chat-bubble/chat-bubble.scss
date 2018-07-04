@@ -63,6 +63,13 @@
             left: 4px;
             transform: rotate(70deg) skew(5deg);
         }
+
+        .message a{
+            color:orange;
+        }
+        .message a:hover{
+            color:red;
+        }
     }
 
     &.right {
@@ -73,6 +80,13 @@
             background-color: $simple-chat-local-user-message-background-color;
             right: 4px;
             transform: rotate(118deg) skew(-5deg);
+        }
+
+        .message a{
+            color:rgb(245, 238, 175);
+        }
+        .message a:hover{
+            color:rgb(247, 200, 156);
         }
     }
 

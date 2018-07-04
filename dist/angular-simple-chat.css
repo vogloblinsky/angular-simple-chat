@@ -62,6 +62,14 @@
   transform: rotate(70deg) skew(5deg);
 }
 
+.chat-bubble.left .message a {
+  color: orange;
+}
+
+.chat-bubble.left .message a:hover {
+  color: red;
+}
+
 .chat-bubble.right {
   background-color: #158ffe;
   color: #fff;
@@ -71,6 +79,14 @@
   background-color: #158ffe;
   right: 4px;
   transform: rotate(118deg) skew(-5deg);
+}
+
+.chat-bubble.right .message a {
+  color: #f5eeaf;
+}
+
+.chat-bubble.right .message a:hover {
+  color: #f7c89c;
 }
 
 .chat-bubble .message {

@@ -9,7 +9,7 @@
             <span am-time-ago="cb.message.date"></span>
         </div>
         <div class="chat-bubble left">
-            <div class="message">{{cb.message.text}}</div>
+            <div ng-bind-html="cb.message.text" class="message"></div>
         </div>
     </div>
 </div>
@@ -24,7 +24,7 @@
             <span am-time-ago="cb.message.date"></span>
         </div>
         <div class="chat-bubble right">
-            <div class="message">{{cb.message.text}}</div>
+            <div ng-bind-html="cb.message.text" class="message"></div>
         </div>
     </div>
 </div>

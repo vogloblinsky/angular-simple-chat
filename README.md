@@ -1,3 +1,7 @@
+## Contribution
+
+* 04/06/2018 - Support hrefs inside the message class (Your module must depend on 'ngSanitize')
+
 # angular-simple-chat
 
 [![devdependencies][devdepstat-image]][devdepstat-url] [![Build Status][travis-image]][travis-url] [![codecov.io][codecov-image]][codecov-url] ![bower][bower-image]
