@@ -30,7 +30,7 @@ function messageComposer() {
 }
 
 /* @ngInject */
-function messageComposerController($scope) {
+function messageComposerController($scope, $filter) {
     var that = this,
         resetLiveLastMessageReference = false,
         _sendFx = function() {
@@ -40,7 +40,7 @@ function messageComposerController($scope) {
             var _message = {
                 id: 'sc' + Date.now(),
                 type: 'message',
-                text: that.rawmessage,
+                text:  $filter('linky')(that.rawmessage, '_blank'),
                 userId: that.localUser.userId,
                 avatar: that.localUser.avatar,
                 userName: that.localUser.userName,

@@ -4,4 +4,4 @@ angular
     ]);
 
 angular
-    .module('angular-simple-chat.directives', []);
+    .module('angular-simple-chat.directives', ['ngSanitize']);
