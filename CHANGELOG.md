@@ -1,3 +1,10 @@
+## Contribution
+
+* support hrefs inside the message class
+
+<a name="#"></a>
+## (2018-06-04)
+
 <a name="1.0.11"></a>
 ## 1.0.11 (2017-01-23)
 
