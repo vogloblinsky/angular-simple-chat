@@ -1,6 +1,6 @@
 ## Contribution
 
-* 04/06/2018 - Support hrefs inside the message class
+* 04/06/2018 - Support hrefs inside the message class (Your module must depend on 'ngSanitize')
 
 # angular-simple-chat
 
